@@ -1,0 +1,5198 @@
+@import variables
+@import insurance.sass
+
+// Common
+body
+    margin: 0
+    font-family: 'Open Sans', sans-serif
+    font-size: 16px
+    line-height: 1.5
+    color: $primary
+    &.hidden
+        overflow: hidden
+    &.covid-page
+        color: #fff
+        background-color: #000a16
+        line-height: 1.3555
+        .container
+            max-width: 1210px
+
+a
+    text-decoration: none
+    color: inherit
+    transition: color .14s linear
+
+h1, h2, h3, h4, h5, h6, p, ul, li
+    padding: 0
+    margin: 0
+
+*, *::after, *::before
+    box-sizing: border-box
+
+input,
+button
+    &:disabled
+        cursor: not-allowed!important
+
+button
+    cursor: pointer
+    transition: color .14s linear
+
+button, textarea, input, select
+    font-family: inherit
+    color: inherit
+    font-size: 100%
+    outline: 0
+
+.lsn
+    list-style: none
+
+.x-reversed
+    transform: scale(-1, 1)
+
+.color-white
+    color: #ffffff
+
+.img-figure
+    display: inline-block
+    margin: 0
+    width: 56px
+
+.mobile1200
+    display: none
+
+.error-input
+    border: 1px solid $red!important
+
+.color-red
+    color: $red
+
+.fz-16
+    font-size: 16px
+
+.fz-14
+    font-size: 14px
+
+.show-740
+    display: none
+
+.fw-600
+    font-weight: 600
+
+.op-hover
+    opacity: 1
+    transition: opacity .12s ease-in-out
+    &:hover
+        opacity: .76
+
+.tooltip
+    position: absolute
+    display: none
+    z-index: 400
+    max-width: 394px
+    padding: 18px 20px
+    background-color: rgba(#2a2a2a, .96)
+    color: #fff
+    top: 110%
+    left: 20%
+    border-radius: 5px
+    width: 100%
+    &-calc-next
+        width: 394px
+    &.show
+        display: block
+    img
+        max-width: 100%
+    p
+        line-height: 1.56
+        margin-bottom: 15px
+
+.p-tooltip
+    cursor: pointer
+    position: relative
+    svg
+        position: relative
+        z-index: 102
+    svg path
+        transition: stroke .2s ease-in-out
+
+    &.active
+        svg path
+            stroke: $secondary
+        .p-tooltip__outer
+            transform: translate(-50%, 0)
+            z-index: 103
+            opacity: 1
+
+        // & + .p-tooltip__outer
+        //     transform: translate(-50%, 0)
+        //     z-index: 100
+        //     opacity: 1
+    &__outer
+        z-index: -1
+        opacity: 0
+        transition: all .1s ease-in
+        padding: 14px 17px
+        border-radius: 5px
+        font-size: 15px
+        background: #052640
+        box-shadow: 0 0 15px 0 rgba(0,26,44,.25)
+        position: absolute
+        color: #fff
+        width: 337px
+        bottom: 30px
+        left: 50%
+        line-height: 1.1
+        transform: translate(-50%, 30px)
+        p
+            font-size: 14px
+            font-weight: 400
+            text-align: center
+        &::after
+            content: ""
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 12px 6px 0 6px
+            border-color: #052640 transparent transparent transparent
+            position: absolute
+            bottom: -12px
+            left: 50%
+            transform: translateX(-50%)
+        &-top
+            font-size: 15px
+            padding-bottom: 15px
+            strong
+                font-size: 18px
+        &-body
+            padding-top: 15px
+            &-title
+                font-size: 18px
+                margin-bottom: 20px
+                img
+                    margin-left: 15px
+            &-wrapper
+                display: flex
+            &-item
+                padding-right: 10px
+                margin-right: 10px
+                border-right: 1px solid $primaryBorder
+                &:last-child
+                    border-right: 0
+                    margin-right: 0
+                p
+                    font-size: 12px
+                    margin-bottom: 12px
+                    text-align: start
+
+                span
+                    font-size: 13px
+                    padding-left: 15px
+                    position: relative
+                    &::after
+                        content: ""
+                        position: absolute
+                        left: 0
+                        top: 50%
+                        transform: translateY(-50%)
+                        width: 10px
+                        height: 10px
+                        border-radius: 50%
+                        background-color: #5ABB53
+                    &.good
+                        &::after
+                            background-color: #5ABB53
+                    &.medium
+                        &::after
+                            background-color: #F4FC47
+                    &.bad
+                        &::after
+                            background-color: #D80027
+
+.hidden-item
+    opacity: 0
+
+.loading-hide
+    display: none!important
+
+.clear-btn
+    border: none
+    background-color: transparent
+    padding: 0
+
+.par-checkbox
+    font-size: 13px
+    display: flex
+    align-items: center
+    label
+        cursor: pointer
+    input
+        position: absolute
+        opacity: 0
+        & + label
+            position: relative
+            padding: 0
+            &::before
+                content: ""
+                margin-right: 7px
+                display: inline-block
+                vertical-align: text-top
+                width: 20px
+                height: 20px
+                background: #fff
+                border-radius: 3px
+                border: 1px solid #e6e6e6
+        &:focus + label:before,
+        &:hover + label:before
+            border: 1px solid $primaryHover
+        &:checked + label:before
+            background: $secondary
+
+        &:checked + label:after
+            content: ""
+            position: absolute
+            left: 5px
+            top: 5px
+            background: url('../img/calculators/checkbox-checked.svg') no-repeat center
+            width: 10px
+            height: 10px
+
+        &:disabled + label
+            color: #b8b8b8
+            cursor: not-allowed
+
+        &:disabled + label:before
+            box-shadow: none
+            background: #ddd
+
+.overlay-fade
+    position: relative
+    &::after, &::before
+        content: ""
+        width: 100%
+        height: 60px
+        position: absolute
+        z-index: 4
+    &::before
+        top: 0
+        background: linear-gradient(180deg,#fff 0,rgba(255,255,255,0))
+    &::after
+        bottom: 0
+        background: linear-gradient(180deg,rgba(241,246,248,0) 0,#fff)
+
+.error-message
+    font-size: 12px
+    color: $red
+
+.prlder
+    &.hide
+        display: none
+
+.dashed-underline
+    position: absolute
+    bottom: 10px
+    left: 0
+    right: 0
+    height: 1px
+    overflow: hidden
+    &::after
+        content: ""
+        border-bottom: 4px dashed $secondary
+        left: 0
+        right: 0
+        bottom: 0
+        top: 0
+        width: 100%
+        height: 1px
+        display: block
+        position: absolute
+
+.underline-elem
+    position: relative
+    color: $secondary
+    padding-bottom: 4px
+    &::after
+        content: ""
+        width: 100%
+        height: 1px
+        bottom: 0
+        left: 0
+        background-color: $secondary
+        position: absolute
+    &-arr-back
+        padding-left: 20px
+        &:hover
+            &::before
+                left: -10px
+        &::before
+            content: ""
+            width: 12px
+            height: 12px
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translateY(-50%) rotate(180deg)
+            transition: left .22s cubic-bezier(0.09, 0.41, 0.92, 1.62)
+            background: url('../img/more-btn-arrow.svg') no-repeat center
+
+    &-arr
+        padding-right: 20px
+        &:hover
+            &::before
+                right: -10px
+        &::before
+            content: ""
+            width: 12px
+            height: 12px
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            transition: right .22s cubic-bezier(0.09, 0.41, 0.92, 1.62)
+            background: url('../img/more-btn-arrow.svg') no-repeat center
+
+// **** Button
+.btn
+    font-weight: 600
+    color: $secondary
+    background-color: #ECF1F6
+    border: none
+    border-radius: 5px
+    height: 40px
+    font-size: 14px
+    transition: background .17s ease-in
+    &:hover
+        background-color: #F4FAFF
+
+.btn-discount
+    border: 1px solid $primaryBorder
+    border-radius: 5px
+    height: 50px
+    font-size: 15px
+    padding-left: 45px
+    text-align: start
+    position: relative
+    width: 100%
+    background-color: #fff
+    transition: box-shadow .22s linear
+    &:hover
+        box-shadow: 0 0 9px rgba(#000, .1)
+    &::after
+        content: ""
+        width: 20px
+        height: 20px
+        position: absolute
+        top: 50%
+        left: 15px
+        transform: translateY(-50%)
+        background: url('../img/result/discount.svg') no-repeat center
+
+.btn-shadow
+    width: 100%
+    height: 40px
+    border-radius: 5px
+    font-size: 13px
+    text-align: center
+    color: $secondary
+    box-shadow: 0 0 3px rgba(42,42,42,.2)
+    max-width: 277px
+    margin: 0 auto
+    display: inline-block
+    position: relative
+
+.btn-change
+    width: 100%
+    color: $secondary
+    font-size: 15px
+    height: 50px
+    border-radius: 5px
+    border: 1px solid $secondary
+    text-align: center
+    font-weight: 600
+    transition: background .15s linear, color .15s linear
+    &:hover
+        background-color: $secondary
+        color: #fff
+.btn-notify
+    background-color: #fff
+    border-radius: 5px
+    height: 40px
+    padding: 0 25px 0 45px
+    position: relative
+    font-weight: 600
+    font-size: 14px
+    transition: box-shadow .2s ease-in-out
+    &:hover
+        box-shadow: 0 0 9px rgba(#000, .1)
+        .bell-shake
+            animation-name: bellshake
+            animation-duration: .09s
+            animation-iteration-count: infinite
+            animation-timing-function: ease-in-out
+            animation-direction: alternate
+            animation-fill-mode: backwards
+            path
+                stroke: $red
+                fill: $red
+    .bell-shake
+        position: absolute
+        content: ""
+        top: 10px
+        left: 25px
+        width: 20px
+        height: 20px
+        .hover
+            display: none
+
+        &.shake
+            animation-name: bellshake
+            animation-duration: .1s
+            animation-iteration-count: infinite
+            animation-timing-function: ease-in-out
+            animation-direction: alternate
+            animation-fill-mode: backwards
+            .static
+                display: none
+            .hover
+                display: block
+            path
+
+.btn-primary
+    color: #fff
+    background-color: $secondary
+    height: 60px
+    text-align: center
+    padding: 0 30px
+    font-weight: 600
+    border-radius: 5px
+    border: 1px solid transparent
+    transition: background .22s linear, border .22s linear, color .22s linear, box-shadow .22s linear
+    &:hover
+        background-color: #457BCD
+        box-shadow: 0 5px 10px rgba($secondary, .3)
+    &:active
+        background-color: #fff
+        border: 1px solid $secondary
+        color: $secondary
+
+.btn-new
+    color: $secondary
+    background-color: #fff
+    border: 1px solid $secondary
+    border-radius: 5px
+    font-size: 14px
+    padding: 0 25px
+    height: 40px
+    transition: background .22s linear, border .22s linear, color .22s linear, box-shadow .22s linear
+    font-weight: 600
+    &:hover
+        box-shadow: 0 5px 10px rgba($secondary, .3)
+
+// * /button
+
+// input
+.input-primary
+    display: block
+    border: 1px solid $primaryBorder
+    border-radius: 5px
+    font-size: 16px
+    padding: 13px 16px
+    width: 100%
+
+    &::placeholder
+        color: $gray
+    &:focus
+        border-color: $secondary
+    &.error
+        border-color: $red
+
+// /input
+
+// Parasol Select
+.parasol-select
+    height: 60px
+    width: 100%
+    &__inner
+        border-radius: 5px
+        border: 1px solid $primaryBorder
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15)
+        height: auto
+        max-height: 362px
+        background-color: #fff
+        position: relative
+        z-index: 20
+        overflow: hidden
+        &::after
+            content: ""
+            width: 8px
+            height: 8px
+            position: absolute
+            top: 26px
+            right: 10px
+            border: 2px solid $primary
+            border-width: 0 0 2px 2px
+            transform: rotate(-45deg)
+            transition: transform .3s linear
+        &.open
+            border: 1px solid $secondary
+            z-index: 50
+
+            .parasol-select__list
+                display: block
+            &::after
+                transform: rotate(135deg)
+
+    &__list
+        list-style: none
+        display: none
+        &-item
+            border-top: 1px solid $primaryBorder
+            height: 50px
+            display: flex
+            align-items: center
+            padding: 0 10px
+            font-size: 15px
+            white-space: nowrap
+            overflow: hidden
+            cursor: pointer
+            span
+                overflow: hidden
+                text-overflow: ellipsis
+
+            figure
+                margin: 0 10px -7px 0
+                display: inline-block
+                width: 40px
+                text-align: center
+                svg
+                    max-width: 100%
+                    transform: scale(-1, 1)
+                    height: auto
+                    path
+                        fill: $secondary
+            &:hover
+                background-color: #FAFAFA
+                color: $secondary
+            &.picked
+                color: $secondary
+            &.disabled
+                background-color: #c5c5c5
+                cursor: not-allowed
+                color: $primary
+
+    &__output
+        cursor: pointer
+        height: 60px
+        display: flex
+        align-items: center
+        padding: 0 10px
+        font-size: 15px
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        font-size: 16px
+        font-weight: 700
+        span
+            width: 95%
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+        figure
+            margin: 0 10px -7px 0
+            display: inline-block
+            width: 40px
+            text-align: center
+            svg
+                max-width: 100%
+                transform: scale(-1, 1)
+                height: auto
+                path
+                    fill: $secondary
+        &-submessage
+            color: #9a9a9a
+            font-size: 12px
+            font-weight: 400
+            margin-left: 5px
+
+    &__line
+
+// /Parasol-select
+
+// Parasol-search
+.parasol-search
+    height: 60px
+    width: 100%
+    &__inner
+        border-radius: 5px
+        -webkit-border-radius: 5px
+        -moz-border-radius: 5px
+        border: 1px solid $primaryBorder
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15)
+        height: auto
+        max-height: 312px
+        background-color: #fff
+        position: relative
+        z-index: 20
+        overflow: hidden
+        &::after
+            content: ""
+            width: 8px
+            height: 8px
+            position: absolute
+            top: 26px
+            right: 10px
+            border: 2px solid $primary
+            border-width: 0 0 2px 2px
+            transform: rotate(-45deg)
+            transition: transform .3s linear
+        &.open
+            border: 1px solid $secondary
+            z-index: 50
+
+            .parasol-search__list
+                display: block
+            &::after
+                transform: rotate(135deg)
+
+    &__list
+        list-style: none
+        display: none
+        &-item
+            border-top: 1px solid $primaryBorder
+            height: 50px
+            padding: 0 10px
+            font-size: 15px
+            display: flex
+            align-items: center
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            cursor: pointer
+            &:hover
+                background-color: #FAFAFA
+                color: $secondary
+            &.picked
+                color: $secondary
+
+    &__input
+        position: relative
+        &.with-loupe
+            &::after
+                content: ""
+                position: absolute
+                width: 20px
+                height: 20px
+                background: url('../img/parasol-select/search-loupe.svg') no-repeat center/cover
+                left: 15px
+                top: 50%
+                transform: translateY(-50%)
+            input
+                padding: 0 10px 0 50px
+        input
+            width: 100%
+            cursor: pointer
+            height: 60px
+            padding: 0 10px
+            transition: padding .15s ease-in-out
+            font-size: 15px
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            font-size: 16px
+            font-weight: 700
+            border: none
+            position: relative
+            &::placeholder
+                color: $gray
+                font-weight: 600
+            &:disabled
+                z-index: 5
+
+// /parasol-search
+
+// advanced-search
+.advanced-search
+    width: 100%
+    height: 60px
+    max-height: 312px
+    position: relative
+
+    &__inner
+        border-radius: 5px
+        -webkit-border-radius: 5px
+        -moz-border-radius: 5px
+        border: 1px solid $primaryBorder
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15)
+        height: auto
+        background-color: #fff
+        position: relative
+        z-index: 20
+        overflow: hidden
+        transition: border .2s linear
+        position: relative
+        &::after
+            content: ""
+            width: 8px
+            height: 8px
+            position: absolute
+            cursor: pointer
+            top: 26px
+            right: 10px
+            border: 2px solid $primary
+            border-width: 0 0 2px 2px
+            transform: rotate(-45deg)
+            transition: transform .3s linear
+        &.open
+            border: 1px solid $secondary
+            z-index: 50
+            height: 312px
+            &::after
+                transform: rotate(135deg)
+            .advanced-search__list
+                display: block
+            .advanced-search__input
+                display: block
+            .advanced-search__output-inner
+                display: none
+    &__input
+        display: none
+        height: 100%
+        width: 100%
+        position: relative
+        &::after
+            content: ""
+            position: absolute
+            left: 15px
+            top: 50%
+            transform: translateY(-50%)
+            width: 20px
+            height: 20px
+            background: url('../img/parasol-select/search-loupe.svg') no-repeat center/cover
+        input
+            width: 100%
+            height: 100%
+            border: none
+            padding-left: 50px
+            &::placeholder
+                font-weight: 600
+                color: #b8b8b8
+    &__list
+        list-style: none
+        height: 252px
+        overflow-y: auto
+        display: none
+        position: absolute
+        top: 60px
+        left: 0
+        width: 100%
+        &::-webkit-scrollbar-track
+            background-color: $secondaryBg
+        &::-webkit-scrollbar
+            width: 6px
+            background-color: $secondary
+        &::-webkit-scrollbar-thumb
+            border-radius: 6px
+            background-color: $secondary
+        &-item
+            border-top: 1px solid $primaryBorder
+            height: 50px
+            padding: 0 10px
+            font-size: 15px
+            display: flex
+            align-items: center
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            cursor: pointer
+            &:hover
+                background-color: #FAFAFA
+                color: $secondary
+            &.picked
+                color: $secondary
+            figure
+                margin: 0 10px 0 0
+                display: inline-block
+                width: 30px
+                height: 30px
+                overflow: hidden
+                text-align: center
+                border-radius: 50%
+                img
+                    width: 100%
+                svg
+                    max-width: 100%
+                    transform: scale(-1, 1)
+                    height: auto
+                    path
+                        fill: $secondary
+    &__output
+        height: 60px
+        &-inner
+            height: 60px
+            display: flex
+            align-items: center
+            padding: 0 10px
+            font-size: 16px
+            font-weight: 700
+            overflow: hidden
+            white-space: nowrap
+            text-overflow: ellipsis
+            cursor: pointer
+            span
+                width: 95%
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+            figure
+                margin: 0 10px 0 0
+                display: inline-block
+                width: 30px
+                height: 30px
+                text-align: center
+                border-radius: 50%
+                overflow: hidden
+                img
+                    width: 100%
+
+                svg
+                    max-width: 100%
+                    transform: scale(-1, 1)
+                    height: auto
+                    path
+                        fill: $secondary
+    &__buttons
+        position: absolute
+        top: 60px
+        left: 0
+
+    &__button
+        font-size: 13px
+        margin-right: 7px
+        margin-top: 8px
+        opacity: 1
+        transition: color .2s linear
+        &:hover
+            color: $secondary
+            text-decoration: underline
+        &:last-child
+            margin-right: 0
+
+// /advanced-search
+
+// clients
+.clients
+    &__label
+        font-size: 15px
+        margin-bottom: 10px
+        display: block
+
+    &__dropdown
+        display: none
+        z-index: 40
+        position: absolute
+        top: 100%
+        left: 0
+        padding: 10px
+        background-color: #fff
+        border-radius: 0 0 5px 5px
+        border: 1px solid $secondary
+        border-top-color: transparent
+        width: 100%
+        box-shadow: 0 3px 5px rgba(0,0,0,.15)
+        justify-content: space-between
+        flex-wrap: wrap
+        &-wrapper
+            width: 48%
+
+        &-add
+            width: 48%
+            text-align: center
+            padding: 6px 20px 6px 30px
+            line-height: 1.2
+            font-size: 14px
+            height: 46px
+            margin-bottom: 10px
+            position: relative
+            cursor: pointer
+            transition: color .2s linear
+            &:hover
+                color: $secondary
+            &::after
+                content: ""
+                width: 24px
+                height: 24px
+                position: absolute
+                top: 50%
+                left: 10px
+                transform: translateY(-50%)
+                background: url('../img/tourist/add-user.svg') no-repeat center/cover
+
+        &-item
+            position: relative
+            width: 100%
+            padding: 10px 0
+            justify-content: center
+            border-bottom: 2px solid $primaryBorder
+            margin-bottom: 10px
+            display: none
+            &.focus
+                border-bottom-color: $secondary
+            &.active
+                display: flex
+            &.error
+                .clients__dropdown-item-error
+                    display: block
+
+                .clients__dropdown-item-num,
+                .clients__dropdown-item-text
+                    display: none
+
+            &::after
+                content: ""
+                width: 20px
+                height: 20px
+                position: absolute
+                top: 50%
+                left: 10px
+                transform: translateY(-50%)
+                background: url('../img/tourist/user.svg') no-repeat center/cover
+            &-num
+                display: inline-block
+                width: 30px
+                border: none
+                border-radius: 3px
+                margin-right: 5px
+                padding: 0 3px
+                -moz-appearance: textfield
+                &::-webkit-inner-spin-button,
+                &::-webkit-outer-spin-button
+                    -webkit-appearance: none
+                    margin: 0
+
+            &-error
+                color: $red
+                font-weight: 600
+                cursor: pointer
+                display: none
+
+            &-delete
+                cursor: pointer
+                position: absolute
+                top: 50%
+                right: 5px
+                transform: translateY(-50%)
+                font-size: 24px
+
+        &-button
+            width: 100%
+            height: 50px
+    &__inner
+        position: relative
+        &.active
+            .clients__dropdown
+                display: flex
+            .clients__output
+                border-color: $secondary
+                border-radius: 5px 5px 0 0
+
+            .clients__output::after
+                transform: rotate(135deg)
+
+    &__output
+        transition: border .18s linear
+        display: flex
+        height: 60px
+        width: 100%
+        align-items: center
+        padding: 0 30px 0 10px
+        box-shadow: 0 3px 5px rgba(0,0,0,.15)
+        border-radius: 5px
+        border: 1px solid $primaryBorder
+        cursor: pointer
+        position: relative
+        background-color: #fff
+
+        &::after
+            content: ""
+            width: 8px
+            height: 8px
+            position: absolute
+            top: 26px
+            right: 10px
+            border: 2px solid $primary
+            border-width: 0 0 2px 2px
+            transform: rotate(-45deg)
+            transition: transform .3s linear
+
+        &-separator
+            margin: 0 6px
+
+        &-default
+            display: none
+            font-weight: 600
+            font-size: 15px
+            line-height: 60px
+            width: 100%
+            color: #9e9e9e
+
+        &-people
+            min-width: 90px
+            white-space: nowrap
+            display: block
+        &.default
+            .clients__output-people,
+            .clients__output-separator,
+            .clients__output-age
+                display: none
+            .clients__output-default
+                display: flex
+
+        &-age
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+            width: 100%
+
+            &-item
+                display: none
+                margin-right: 4px
+                &.active
+                    display: inline
+                &::after
+                    content: ","
+                &:last-child
+                    margin-right: 0
+                    &::after
+                        content: ""
+
+// /clients
+
+// parasol-radio
+.parasol-radio
+
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked)
+        position: absolute
+        left: -9999px
+
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label
+        position: relative
+        padding-left: 28px
+        cursor: pointer
+        line-height: 20px
+        display: inline-block
+        color: $primary
+
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before
+        content: ""
+        position: absolute
+        left: 0
+        top: 1px
+        width: 18px
+        height: 18px
+        border: 1px solid $primaryBorder
+        border-radius: 100%
+        background: #fff
+
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after
+        content: ""
+        width: 18px
+        height: 18px
+        position: absolute
+        top: 1px
+        left: 0
+        border-radius: 100%
+        -webkit-transition: all 0.2s ease-in-out
+        transition: all 0.2s ease-in-out
+        border: 5.5px solid $secondary
+
+    [type="radio"]:not(:checked) + label:after
+        opacity: 0
+        border-width: 0
+
+    [type="radio"]:checked + label:after
+        opacity: 1
+        border-width: 5.5px
+
+    [type="radio"]:checked + label
+        color: $secondary
+
+    label
+        &:hover
+            &::before
+                border: 1px solid $secondary!important
+
+// /parasol-radio
+
+@keyframes loader
+    0%
+        transform: translateX(0)
+    100%
+        transform: translateX(600px)
+
+@keyframes loader2
+    0%
+        transform: translateX(0)
+    100%
+        transform: translateX(350px)
+
+@keyframes loader3
+    0%
+        left: -100%
+    100%
+        left: 200%
+
+@keyframes bellshake
+    0%
+        transform: rotate(-25deg)
+    100%
+        transform: rotate(0)
+// preloader
+.preloader
+    display: none
+    max-width: 600px
+    margin: 0 auto
+    position: relative
+    z-index: 10
+    &.small-loader
+        .preloader__line span
+            animation-name: loader2
+            animation-duration: 1.5s
+    &.loading
+        display: block
+    &__line
+        background-color: #e6e6e6
+        width: 100%
+        height: 8px
+        border-radius: 5px
+        margin-bottom: 27px
+        overflow: hidden
+        position: relative
+        span
+            display: block
+            width: 0
+            height: 100%
+            position: absolute
+            left: 0
+            top: 0
+            box-shadow: 0 0 100px 140px rgba(255,255,255,.86)
+            z-index: 11
+            animation-name: loader
+            animation-duration: 3s
+            animation-iteration-count: infinite
+            animation-direction: alternate
+
+// /preloader
+
+.container
+    max-width: 1246px
+    width: 100%
+    margin: 0 auto
+    padding: 0 15px
+
+// Section
+.section
+    &__title
+        text-align: center
+        font-size: 30px
+        line-height: 1.36666
+        margin-bottom: 45px
+    &__main-title
+        font-size: 40px
+        line-height: 1.35
+        font-weight: 800
+        text-align: center
+    &__nav
+        font-size: 13px
+        font-weight: 600
+        padding: 15px 0
+        a
+            &:hover
+                color: $secondary
+
+        &-arrow
+            margin: 0 4px
+
+// * /section
+
+// login modal
+.login
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1000
+    justify-content: center
+    align-items: center
+    &.show
+        display: flex
+    &__close
+        position: absolute
+        top: -25px
+        right: -25px
+        cursor: pointer
+        svg path
+            transition: fill .14s linear
+        &:hover
+            svg path
+                fill: $red
+
+    &__bg
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background-color: #000000c2
+        z-index: 1001
+
+    &__wrapper
+        position: relative
+        z-index: 1005
+        display: flex
+        border-radius: 10px
+        max-width: 834px
+        width: 100%
+        box-shadow: 0 0 15px rgba(0,0,0,.2)
+    &__inner
+        background-color: #fff
+        border: 1px solid $primaryBorder
+        border-right-width: 0
+        padding: 40px 70px 50px 45px
+        border-radius: 10px 0 0 10px
+        &-title
+            font-size: 40px
+            line-height: 1.3
+            margin-bottom: 50px
+            white-space: nowrap
+
+        &-label
+            position: relative
+            display: block
+            width: 100%
+            max-width: 340px
+            margin-bottom: 10px
+            &.name
+                display: none
+                margin-bottom: 30px
+                &.active
+                    display: block
+
+            &.error
+                .login__inner-input
+                    border-color: $red
+                .login__inner-label-errmessage
+                    display: block
+
+            &-errmessage
+                color: $red
+                font-size: 13px
+                margin-top: 4px
+                display: none
+
+            &-loader
+                width: 32px
+                height: 32px
+                padding: 4px
+                position: absolute
+                right: -16px
+                top: 50%
+                transform: translateY(-50%)
+                background-color: #fff
+                display: none
+                &.active
+                    display: block
+
+                img
+                    width: 70px
+                    height: auto
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+            &-ready
+                width: 32px
+                height: 32px
+                padding: 4px
+                position: absolute
+                right: -16px
+                top: 50%
+                transform: translateY(-50%)
+                background-color: #fff
+                display: none
+                &.active
+                    display: block
+                svg
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+            &-error
+                width: 32px
+                height: 32px
+                padding: 4px
+                position: absolute
+                right: -16px
+                top: 50%
+                transform: translateY(-50%)
+                background-color: #fff
+                display: none
+                &.active
+                    display: block
+                svg
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+            span
+                position: absolute
+                top: -10px
+                left: 10px
+                padding: 0 4px
+                color: $gray
+                font-size: 13px
+                background-color: #fff
+        &-sublabel
+            font-size: 0
+            color: transparent
+            margin-bottom: 40px
+            transition: all .1s ease-in
+            &.active
+                font-size: 13px
+                color: $primary
+            .sublabel-time
+                color: $secondary
+                font-weight: 700
+                cursor: pointer
+
+        &-input
+            display: block
+            width: 100%
+            border: 1px solid $primaryBorder
+            border-radius: 5px
+            padding: 18px 16px
+            font-size: 16px
+
+            // &.name
+            //     margin-bottom: 30px
+            &.code
+                text-align: center
+            &::placeholder
+                color: $gray
+            &:focus
+                border-color: $secondary
+            &.error
+                border-color: $red
+
+        &-sms
+            height: 39px
+            position: absolute
+            top: 10px
+            right: 25px
+            // transform: translateY(-50%)
+            background-color: $secondary
+            border-radius: 5px
+            padding: 10px 0
+            text-align: center
+            width: 130px
+            font-size: 14px
+            color: #ffffff
+            font-weight: 600
+            border: 0
+            transition: all .2s linear
+
+            &:disabled
+                background-color: $gray
+                &:hover
+                    box-shadow: 0 0 0 rgba($primary, .2)
+            &:hover
+                box-shadow: 0 4px 10px rgba($primary, .2)
+
+        &-wrapper
+            max-width: 340px
+
+        &-buttons
+            display: flex
+            justify-content: space-between
+        &-button
+            border: 1px solid $primaryBorder
+            position: relative
+            background-color: #fff
+            padding: 14px 0 16px 30px
+            text-align: center
+            font-size: 15px
+            border-radius: 5px
+            width: 155px
+            transition: all .22s ease-in-out
+            &:hover
+                background-color: $secondary
+                color: #fff
+                svg path
+                    fill: #fff
+            svg
+                position: absolute
+                left: 13px
+                top: 50%
+                transform: translateY(-50%)
+                path
+                    transition: all .22s ease-in-out
+
+        &-pledge
+            margin: 40px 0 35px
+            position: relative
+            height: 20px
+            &::after
+                content: ""
+                position: absolute
+                background-color: $primaryBorder
+                width: 100%
+                height: 1px
+                top: 50%
+                left: 0
+                transform: translateY(-50%)
+            span
+                position: absolute
+                top: 50%
+                left: 50%
+                color: $gray
+                font-size: 15px
+                transform: translate(-50%, -50%)
+                display: inline-block
+                width: 233px
+                text-align: center
+                background-color: #fff
+                z-index: 4
+
+    &__image
+        background: linear-gradient(180deg, #02045A 0%, #003CAE 100%)
+        position: relative
+        min-width: 305px
+        width: 100%
+        max-width: 320px
+        border-radius: 0 10px 10px 0
+        img
+            position: absolute
+            top: 42px
+            left: 50%
+            transform: translateX(-50%)
+        &::after
+            content: ""
+            position: absolute
+            width: 256px
+            height: 253px
+            top: 210px
+            left: 50%
+            transform: translateX(-50%)
+            background: url('../img/login-bg.svg') no-repeat center
+
+// /login modal
+
+// slider
+.slick-prev
+    background: url('../img/slider-arrow.svg') no-repeat center
+    &::before
+        display: none
+
+.slick-next
+    background: url('../img/slider-arrow.svg') no-repeat center
+    transform: rotate(180deg)
+    &::before
+        display: none
+// * /slider
+
+// Header
+.header
+    display: flex
+    flex-direction: column
+    position: relative
+    z-index: 1000
+    overflow: hidden
+    &.w-covid-pledge
+        .header__top .container
+            &::after,
+            &::before
+                content: ""
+                position: absolute
+                top: -29px
+                width: 90px
+                height: 90px
+            &::after
+                background: url('../img/virus-blue.png') no-repeat center
+                right: -119px
+            &::before
+                background: url('../img/virus-red.png') no-repeat center
+                left: -120px
+                top: -39px
+    &__covid-pledge
+        background: linear-gradient(90deg, #D01A2D 0%, #E15261 30.73%, #D01A2D 100%)
+        color: #fff
+        p
+            font-weight: 600
+        .container
+            height: 40px
+            display: flex
+            align-items: center
+            justify-content: space-between
+            position: relative
+            z-index: 260
+
+        a
+            font-weight: 700
+            text-decoration: underline
+            &:hover
+                opacity: .7
+                text-decoration: none
+    &-mobile
+        background-color: #fff
+        height: 0
+        padding-top: 20px
+        overflow-y: auto
+        position: fixed
+        padding-top: 0
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        display: none
+        z-index: -1
+        transition: height .4s ease-in-out, padding .4s ease-in-out
+        &.show
+            z-index: 1100
+            padding-top: 50px
+            padding-bottom: 129px
+            height: 100vh
+        &__burger
+            width: 30px
+            height: 30px
+            border: none
+            background-color: transparent
+            position: absolute
+            right: 20px
+            top: 40px
+            transform: translateY(-50%)
+            padding: 0 4px
+            display: none
+            span
+                display: block
+                background-color: #fff
+                width: 22px
+                height: 2px
+                border-radius: 2px
+                position: relative
+                &::after, &::before
+                    content: ""
+                    position: absolute
+                    background-color: #fff
+                    width: 22px
+                    height: 2px
+                &::after
+                    left: 0
+                    top: -6px
+                &::before
+                    right: 0
+                    bottom: -6px
+        &__close
+            position: absolute
+            color: $secondary
+            border: 2px solid $secondary
+            top: 10px
+            left: 50%
+            transform: translateX(-50%)
+            font-size: 34px
+            height: 40px
+            width: 40px
+            display: flex
+            align-items: center
+            justify-content: center
+            background-color: #fff
+            transition: color .22s linear, background .22s linear
+            border-radius: 50%
+            &:active,
+            &:hover
+                background-color: $primary
+                color: #fff
+        &__profile
+            display: flex
+            justify-content: space-between
+            padding: 0 20px
+
+        &__user
+            display: flex
+            align-items: center
+            &-pic
+                width: 60px
+                height: 60px
+                border-radius: 50%
+                overflow: hidden
+                background: url('../img/header-mobile-userpic.svg') no-repeat center
+                img
+                    max-width: 100%
+                    width: 100%
+                    height: auto
+                    display: block
+            &-name
+                display: flex
+                flex-direction: column
+                font-weight: 600
+                padding-left: 15px
+
+            &-logout
+                width: 30px
+                height: 30px
+                display: block
+                background: url('../img/header-mobile-logout.svg') no-repeat center
+        &__support
+            width: 253px
+            display: block
+            margin: 20px auto
+            padding: 11px 0 11px 68px
+            border-radius: 10px
+            border: 1px solid $primary
+            background: #ffffff url('../img/header-mobile-support.svg') no-repeat 17px 50%
+
+        &__nav
+            list-style: none
+            &-item
+                border-top: 1px solid #e6e6e6
+                border-left: 1px solid #e6e6e6
+                border-right: 1px solid #e6e6e6
+                position: relative
+                &::after
+                    content: ""
+                    position: absolute
+                    width: 10px
+                    height: 10px
+                    top: 50%
+                    right: 20px
+                    transform: translateY(-50%) rotate(135deg)
+                    border-left: 2px solid $primary
+                    border-top: 2px solid $primary
+                &:hover
+                    .header-mobile__nav-item-pic path
+                        fill: $secondary
+                &:last-child
+                    border-bottom: 1px solid #e6e6e6
+                a
+                    display: block
+                    height: 50px
+                    line-height: 50px
+                    font-weight: 600
+                    padding-left: 59px
+                    position: relative
+                &-pic
+                    position: absolute
+                    top: 50%
+                    left: 20px
+                    transform: translateY(-50%)
+                    path
+                        transition: fill .22s linear
+                        fill: #9E9E9E
+
+        &__submenu
+            list-style: none
+            display: flex
+            flex-direction: column
+            margin-bottom: 20px
+            &-icon
+                position: absolute
+                left: 20px
+                top: 50%
+                transform: translateY(-50%)
+                path
+                    stroke: $primary
+                    transition: stroke .11s ease-in
+            &-item
+                width: 100%
+                line-height: 42px
+                position: relative
+                margin: 4px 0
+                &.soon
+                    a
+                        opacity: .2
+                    &::after
+                        content: "скоро"
+                        text-transform: uppercase
+                        position: absolute
+                        top: 50%
+                        right: 20px
+                        transform: translateY(-50%)
+                        font-weight: 700
+                        padding: 4px 8px
+                        background-color: $red
+                        border-radius: 2px
+                        color: #ffffff
+                        line-height: 22px
+                a
+                    display: block
+                    padding-left: 55px
+                    font-size: 15px
+                    position: relative
+                    transition: color .11s ease-in
+                    &:hover
+                        color: $primaryHover
+                        .header-mobile__submenu-icon path
+                            stroke: $primaryHover
+
+        &__tels
+            list-style: none
+            position: relative
+            padding-right: 20px
+            max-width: 180px
+            margin: 20px auto
+            transition: margin .22s linear
+            &:hover
+                margin: 40px auto
+                .header-mobile__tels-item.first,
+                .header-mobile__tels-item.third
+                    z-index: 1
+                    opacity: 1
+                .header-mobile__tels-item.first
+                    top: -13px
+                .header-mobile__tels-item.third
+                    bottom: -34px
+                    top: unset
+                &::after
+                    transform: translateY(-50%) rotate(180deg)
+            &-icon
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                left: 0
+                width: 23px
+                height: 23px
+                display: block
+                &.third path
+                    fill: $secondary
+                g
+                    stroke: $secondary
+                path
+                    stroke: $secondary
+
+            &-item
+                position: relative
+                padding-left: 30px
+                font-weight: 600
+            &::after
+                content: ""
+                transition: transform .1s ease-in-out
+                position: absolute
+                right: 0
+                top: 50%
+                transform: translateY(-50%) rotate(90deg)
+                height: 20px
+                width: 20px
+                background: url('../img/arrow-right-dark.svg') no-repeat center
+            &-item.first, &-item.third
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                z-index: -1
+                opacity: 0
+                transition: all .1s ease-in-out
+
+        &__lang
+            display: flex
+            justify-content: center
+            margin-bottom: 10px
+            &-item
+                line-height: 30px
+                &.active
+                    color: $secondary
+                    padding: 0 19px
+                    border-radius: 20px
+                    border: 1px solid $secondary
+                    margin: 0 5px
+
+    &__top
+        color: #ffffff
+        background: #1A5E9C linear-gradient(180deg, #1A5E9C 0%, #599EDB 100%)
+        height: 80px
+        position: relative
+        z-index: 350
+        .container
+            display: flex
+            justify-content: space-between
+            align-items: center
+            height: 100%
+            position: relative
+
+    &__logo
+        display: block
+        img
+            display: block
+
+    &__tels
+        list-style: none
+        position: relative
+        padding-right: 20px
+        &:hover
+            .header__tels-item.first,
+            .header__tels-item.third
+                z-index: 1
+                opacity: 1
+            .header__tels-item.first
+                top: -10px
+            .header__tels-item.third
+                bottom: -34px
+                top: unset
+            &::after
+                transform: translateY(-50%) rotate(180deg)
+        &-icon
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            left: 0
+            width: 23px
+            height: 23px
+            display: block
+            g
+            stroke: #ffffff
+
+        &-item
+            position: relative
+            padding-left: 30px
+            font-weight: 600
+        &::after
+            content: ""
+            transition: transform .1s ease-in-out
+            position: absolute
+            right: 0
+            top: 50%
+            transform: translateY(-50%)
+            height: 6px
+            width: 10px
+            background: url('../img/arrow-down.svg') no-repeat center
+        &-item.first, &-item.third
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            z-index: -1
+            opacity: 0
+            transition: all .1s ease-in-out
+
+    &__lang
+        &-button
+            line-height: 30px
+            height: 30px
+            &.active
+                padding: 0 19px
+                border-radius: 20px
+                margin: 0 5px
+                border: 1px solid #ffffff
+
+    &__user
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0 19px
+        height: 39px
+        line-height: 39px
+        border: 1px solid #ffffff
+        border-radius: 20px
+        &-profile
+            transition: color .12s ease-in
+            &:hover
+                color: #c9e0f5
+        &-logout
+            margin-left: 5px
+            width: 25px
+            height: 25px
+            background: url('../img/logout-icon.svg') no-repeat center
+
+    &__nav
+        height: 42px
+        background-color: #ECF1F6
+        overflow: hidden
+        transition: height .6s ease-in-out
+        position: relative
+        // top: 80px
+        // left: 0
+        // right: 0
+        &::after
+            content: ""
+            position: absolute
+            right: 0
+            height: 1px
+            width: 100%
+            background-color: #e6e6e6
+            top: 84px
+
+        &.show
+            height: 168px
+            .header__nav-burger-lines
+                background-color: transparent
+                transform: translateX(-7px)
+                &::after
+                    background-color: $secondary
+                    transform: rotate(45deg) translateY(-8px)
+                &::before
+                    background-color: $secondary
+                    transform: rotate(-45deg) translateY(8px)
+            .header__nav-show
+                color: $secondary
+
+        &-inner
+            display: flex
+
+        &-show
+            width: 135px
+            height: 42px
+            text-align: start
+            outline: none
+            position: relative
+            transition: color .6s linear
+
+        &-burger
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            width: 22px
+            display: flex
+            justify-content: center
+            align-items: center
+            &-lines
+                display: block
+                width: 100%
+                height: 2px
+                position: relative
+                background-color: $primary
+                transition: background .6s ease-in-out, transform .6s ease-in-out
+                &::after, &::before
+                    content: ""
+                    width: 100%
+                    position: absolute
+                    height: 2px
+                    left: 0
+                    background-color: $primary
+                    transition: transform .6s ease-in-out, background .6s ease-in-out
+                &::after
+                    bottom: -6px
+                &::before
+                    top: -6px
+
+        &-wrapper
+            width: calc(100% - 135px)
+
+        &-menu
+            list-style: none
+            display: flex
+            flex-wrap: wrap
+
+            &-item
+                margin-right: 106px
+                a
+                    display: block
+                    line-height: 42px
+                    transition: color .11s ease-in
+                    &:hover
+                        color: $primaryHover
+
+        &-submenu
+            list-style: none
+            display: flex
+            flex-wrap: wrap
+            max-width: 787px
+            &-icon
+                position: absolute
+                left: 0
+                top: 50%
+                transform: translateY(-50%)
+                path
+                    stroke: $primary
+                    transition: stroke .11s ease-in
+            &-item
+                width: 50%
+                line-height: 42px
+                position: relative
+                &.soon
+                    a
+                        opacity: .2
+                        cursor: not-allowed
+                    &::after
+                        content: "скоро"
+                        text-transform: uppercase
+                        position: absolute
+                        top: 50%
+                        right: 80px
+                        transform: translateY(-50%)
+                        font-weight: 700
+                        padding: 4px 8px
+                        background-color: $red
+                        border-radius: 2px
+                        color: #ffffff
+                        line-height: 22px
+                a
+                    display: block
+                    padding-left: 35px
+                    font-size: 15px
+                    position: relative
+                    transition: color .11s ease-in
+                    &:hover
+                        color: $primaryHover
+                        .header__nav-submenu-icon path
+                            stroke: $primaryHover
+// /header
+
+// *** Tabs
+.tabs
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: space-between
+    &-content
+        display: none!important
+        position: relative
+        opacity: 1
+        transition: opacity .2s ease-in-out
+        flex-wrap: wrap
+        &.active
+            display: flex!important
+        &.hide
+            opacity: 0
+
+    &-more
+        margin-top: 3px
+
+    &-wrapper
+        width: 100%
+
+    &-header
+        margin-bottom: 25px
+
+    &-buttons
+        display: flex
+        flex-wrap: wrap
+
+    &-button
+        color: #666A6F
+        border: none
+        padding: 5px 0
+        background-color: transparent
+        margin-right: 35px
+        transition: color .15s ease-in
+        font-weight: 600
+        position: relative
+        white-space: nowrap
+
+        &:disabled
+            cursor: auto!important
+        &.disabled
+            cursor: not-allowed!important
+            opacity: .5
+        &:first-child
+            &::before
+                left: unset
+                right: 0
+        &::before
+            content: ""
+            width: 0
+            height: 2px
+            background-color: $secondary
+            position: absolute
+            bottom: 0
+            left: 0
+            transition: width .21s ease-in-out
+        &:last-child
+            margin-right: 0
+        &:hover
+            color: $primary
+        &.active
+            color: $primary
+            font-weight: 700
+            &::before
+                width: 100%
+
+    &-more
+        &-button
+            color: $secondary
+            padding-right: 21px
+            padding-bottom: 3px
+            position: relative
+            transition: opacity .12s linear
+            &.dynamic
+                position: absolute
+                right: 0
+                top: -55px
+            &:hover
+                opacity: .6
+                &::before
+                    right: -10px
+            &::after
+                content: ""
+                width: 100%
+                height: 1px
+                background-color: $secondary
+                bottom: 0
+                right: 0
+                left: 0
+                position: absolute
+            &::before
+                content: ""
+                width: 12px
+                height: 12px
+                position: absolute
+                top: 50%
+                right: 0
+                transform: translateY(-50%)
+                transition: right .22s cubic-bezier(0.09, 0.41, 0.92, 1.62)
+                background: url('../img/more-btn-arrow.svg') no-repeat center
+
+// * /tabs
+
+// *** Sections
+
+// main-section
+.main-section
+    position: relative
+    padding-bottom: 75px
+
+    .container
+        position: relative
+        z-index: 2
+        &::before
+            content: ""
+            background: url('../img/main-bg-large.png') no-repeat center
+            width: 921px
+            height: 465px
+            position: absolute
+            top: 0
+            right: 20px
+            z-index: 0
+
+    &-mobile
+        &__nav
+            display: none
+            list-style: none
+            position: relative
+            &::after
+                content: ""
+                width: 3px
+                height: 100%
+                position: absolute
+                left: 0
+                top: 0
+                background: $secondary linear-gradient(180deg, #1A5E9C 0%, #599EDB 100%)
+            &-item
+                border-top: 1px solid #e6e6e6
+                border-left: 1px solid #e6e6e6
+                border-right: 1px solid #e6e6e6
+                position: relative
+                &::after
+                    content: ""
+                    position: absolute
+                    width: 10px
+                    height: 10px
+                    top: 50%
+                    right: 20px
+                    transform: translateY(-50%) rotate(135deg)
+                    border-left: 2px solid $primary
+                    border-top: 2px solid $primary
+                &:hover
+                    .main-section-mobile__nav-item-pic path
+                        fill: $secondary
+                &:last-child
+                    border-bottom: 1px solid #e6e6e6
+                a
+                    display: block
+                    height: 50px
+                    line-height: 50px
+                    font-weight: 600
+                    padding-left: 59px
+                    position: relative
+                &-pic
+                    position: absolute
+                    top: 50%
+                    left: 20px
+                    transform: translateY(-50%)
+                    path
+                        transition: fill .22s linear
+                        fill: #9E9E9E
+    &__inner
+        padding: 69px 28px 0
+        margin-bottom: 77px
+        position: relative
+        z-index: 2
+
+    &__title
+        font-size: 40px
+        line-height: 54px
+        font-weight: 800
+        margin-bottom: 10px
+
+    &__subtitle
+        font-size: 25px
+        line-height: 1.32
+        font-weight: 600
+        max-width: 550px
+        margin-bottom: 50px
+
+    &__list
+        list-style: none
+        &-item
+            line-height: 1.37
+            margin-bottom: 18px
+            padding-left: 34px
+            position: relative
+            &::before
+                position: absolute
+                content: ""
+                width: 24px
+                height: 24px
+                background: url('../img/list-item-green.svg') center no-repeat
+                top: 50%
+                left: 0
+                transform: translateY(-50%)
+
+    &__types
+        max-width: 990px
+        margin: 0 auto
+        display: flex
+        flex-wrap: wrap
+        position: relative
+        z-index: 3
+        justify-content: space-between
+        &-item
+            display: block
+            position: relative
+            max-width: 320px
+            width: 100%
+            margin-bottom: 15px
+            padding: 18px 20px
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1)
+            border: 1px solid #E6E6E6
+            background-color: #fff
+            border-radius: 5px
+            cursor: pointer
+            transition: box-shadow .22s ease-in
+            &::after
+                content: ""
+                position: absolute
+                right: 15px
+                top: 50%
+                transform: translateY(-50%)
+                background: url('../img/arrow-right-dark.svg') no-repeat center
+                width: 11px
+                height: 20px
+            &:hover
+                box-shadow: 0 0 15px rgba(0,0,0,.4)
+                .main-section__types-title
+                    color: $secondary
+                .main-section__types-desc
+                    opacity: 1
+
+        &-top
+            height: 59px
+            display: flex
+            align-items: center
+
+        &-pic
+            margin-right: 12px
+
+        &-title
+            font-weight: 700
+            display: block
+            transition: color .22s ease-in
+
+        &-desc
+            opacity: .5
+            transition: opacity .22s ease-in
+
+// * /main-section
+
+// quote-section
+.quote-section
+    background-color: #E1E5F8
+
+    &__inner
+        display: flex
+        justify-content: space-between
+        max-width: 955px
+        margin: 0 auto
+
+    &__picture
+        font-size: 0
+        color: transparent
+        position: relative
+        &::before
+            width: 196px
+            height: 267px
+            content: ""
+            position: absolute
+            left: 0
+            bottom: 0
+            background: url('../img/stock-woman.svg') no-repeat center
+        &.index
+            &::before
+                background: url('../img/girl-index.png') no-repeat center/cover
+                width: 216px
+                height: 260px
+        &.osago
+            &::before
+                width: 224px
+                height: 258px
+                background: url('../img/girl-osago.png') no-repeat center/cover
+
+        &.green
+            &::before
+                width: 224px
+                height: 257px
+                background: url('../img/girl-green.png') no-repeat center/cover
+
+        &.travel
+            &::before
+                width: 198px
+                height: 256px
+                background: url('../img/girl-travel.png') no-repeat center/cover
+    &__quote
+        padding: 30px 36px 27px
+        line-height: 25px
+        position: relative
+        width: 76%
+
+        h6
+            font-size: 100%
+            font-weight: 400
+
+        blockquote
+            margin: 0 40px 0 0
+            position: relative
+            padding: 10px 0 15px
+            &::before, &::after
+                content: ""
+                position: absolute
+                width: 26px
+                height: 26px
+            &::before
+                background: url('../img/quotes-open.svg') no-repeat center
+                left: -34px
+                top: 0
+
+            &::after
+                background: url('../img/quotes-close.svg') no-repeat center
+                right: -22px
+                bottom: 4px
+            ol
+                margin: 0
+                padding-left: 18px
+        cite
+            font-weight: 700
+            font-style: normal
+
+// * /quote-section
+
+// leader-section
+.leaders-section
+    background-color: $primaryBg
+    padding-bottom: 55px
+    &__inner
+        padding-top: 60px
+        max-width: 1120px
+        margin: 0 auto
+
+    &__tabs
+        &-content
+            justify-content: center
+        &-company
+            position: relative
+            background-color: #fff
+            border: 1px solid #E6E6E6
+            border-width: 1px 1px 0 0
+            padding: 20px 30px
+            width: 224px
+            height: 240px
+            transition: box-shadow .21s ease-in
+            &:hover
+                box-shadow: 0 0 15px rgba(0,0,0,.2)
+                z-index: 2
+            &:first-child
+                border-width: 1px 1px 0 1px
+            &:nth-child(6)
+                border-width: 1px 1px 1px 1px
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(9),
+            &:nth-child(10)
+                border-width: 1px 1px 1px 0
+        &-calculate
+            position: absolute
+            bottom: 15px
+            left: 26px
+            width: 172px
+            display: flex
+            align-items: center
+            justify-content: center
+
+        &-picture
+            margin-bottom: 10px
+            height: 65px
+            display: flex
+            align-items: center
+            img
+                display: block
+                max-width: 100%
+                width: auto
+                height: auto
+                max-height: 32px
+            &--larger
+                img
+                    max-height: 42px
+
+// * /leaders-section
+
+// country-section
+.country-section
+    padding: 35px 0 45px
+    .container
+        max-width: 1064px
+    &__tabs
+        &-card
+            width: 238px
+            height: 255px
+            -webkit-border-radius: 5px
+            -moz-border-radius: 5px
+            border-radius: 5px
+            position: relative
+            overflow: hidden
+            padding: 10px 15px
+            color: #ffffff
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            margin: 0 10px 20px
+            &-bg
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                z-index: 0
+                &.kyiv
+                    background: url('../img/city-1.jpg') no-repeat center
+                &.lviv
+                    background: url('../img/city-2.jpg') no-repeat center
+                &.odessa
+                    background: url('../img/city-3.jpg') no-repeat center
+                &.kharkiv
+                    background: url('../img/city-4.jpg') no-repeat center
+                &.vinnytsia
+                    background: url('../img/city-5.jpg') no-repeat center
+                &.chernivtsi
+                    background: url('../img/city-6.jpg') no-repeat center
+                &.zaporizhzhia
+                    background: url('../img/city-7.jpg') no-repeat center
+                &.dnipro
+                    background: url('../img/city-8.jpg') no-repeat center
+
+                &.europe
+                    background: url('../img/green-1.jpg') no-repeat center
+                &.russia
+                    background: url('../img/green-2.jpg') no-repeat center
+                &.belarus
+                    background: url('../img/green-3.jpg') no-repeat center
+                &.moldovia
+                    background: url('../img/green-4.jpg') no-repeat center
+                &.azerb
+                    background: url('../img/green-5.jpg') no-repeat center
+                &.poland
+                    background: url('../img/green-6.jpg') no-repeat center
+                &.baltia
+                    background: url('../img/green-7.jpg') no-repeat center
+                &.aftica
+                    background: url('../img/green-8.jpg') no-repeat center
+
+                &.eu
+                    background: url('../img/tour-1.jpg') no-repeat center
+                &.asia
+                    background: url('../img/tour-2.jpg') no-repeat center
+                &.usa
+                    background: url('../img/tour-3.jpg') no-repeat center
+                &.near-east
+                    background: url('../img/tour-4.jpg') no-repeat center
+                &.australia
+                    background: url('../img/tour-5.jpg') no-repeat center
+                &.oceania
+                    background: url('../img/tour-6.jpg') no-repeat center
+                &.scandinavia
+                    background: url('../img/tour-7.jpg') no-repeat center
+                &.af
+                    background: url('../img/tour-8.jpg') no-repeat center
+
+            &:hover
+                .country-section__tabs-price
+                    &::before
+                        width: 194px
+                .country-section__tabs-city
+                    transform: translateY(0)
+                .country-section__tabs-link
+                    text-decoration: underline
+                .country-section__tabs-show
+                    height: 32px
+                    opacity: 1
+                    padding-bottom: 8px
+                    margin-bottom: 8px
+                    &:hover
+
+                        &::after
+                            right: -30px
+
+                &::after
+                    background: linear-gradient(180deg, #272C2E 0%, rgba(0, 0, 0, 0.1) 52.5%, #272C2E 100%)
+                    opacity: 1
+
+            &::after
+                content: ""
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+                z-index: 1
+                // background: linear-gradient(180deg, rgba(39, 44, 46, 0.7) 0%, rgba(0, 0, 0, 0.6) 52.5%, rgba(39, 44, 46, 1) 100%, rgba(39, 44, 46, 0.9) 100%)
+                background: linear-gradient(180deg, #272C2E 0%, rgba(0, 0, 0, 0.1) 52.5%, #272C2E 100%)
+                opacity: .6
+                transition: opacity .22s ease-in
+
+        &-link, &-info
+            position: relative
+            z-index: 2
+
+        &-info
+
+        &-link
+            font-weight: 600
+            text-decoration: none
+
+        &-city
+            font-weight: 700
+            font-size: 18px
+            line-height: 1.38888
+            margin-bottom: 5px
+            transform: translateY(24px)
+            transition: transform .2s ease-in-out
+
+        &-show
+            margin: 0
+            padding: 0
+            display: inline-block
+            position: relative
+            height: 0
+            opacity: 0
+            transition: all .2s ease-in-out
+
+            &::after
+                content: ""
+                width: 12px
+                height: 12px
+                position: absolute
+                right: -20px
+                top: 7px
+                transition: right .2s ease-in-out
+                background: url('../img/arrow-right-white.svg') no-repeat center
+        &-price
+            font-size: 18px
+            font-weight: 700
+            position: relative
+            &::before
+                content: ""
+                width: 0
+                height: 1px
+                background-color: #ffffff
+                position: absolute
+                top: -8px
+                left: 0
+                transition: width .2s ease-in-out
+// * /country-section
+
+// everything-section
+.everything-section
+    padding: 41px 0 50px
+    background-color: $primaryBg
+    .container
+        max-width: 1186px
+
+    &__tabs
+
+        &-table
+            width: 100%
+            border-spacing: inherit
+            border-radius: 5px
+            border: 1px solid #E6E6E6
+            tr
+                border-bottom: 1px solid #E6E6E6
+                &:last-child
+                    td
+                        border-bottom: 0
+            td
+                background-color: #fff
+                border-right: 1px solid #E6E6E6
+                border-bottom: 1px solid #E6E6E6
+                height: 83px
+                text-align: center
+                width: 16.66666%
+                transition: box-shadow .11s ease-in
+                position: relative
+                a
+                    display: flex
+                    align-items: center
+                    flex-direction: column
+                    justify-content: center
+                    width: 100%
+                    height: 100%
+                &:hover
+                    z-index: 2
+                    box-shadow: 0 0 15px rgba(0,0,0,.2)
+                &:last-child
+                    border-right: 0
+                p
+                    font-size: 13px
+                    margin-top: 5px
+                img
+                    display: block
+                    width: 100%
+                    margin: 0 auto
+            &.flags-table
+                tr td img
+                    width: 40px
+            &.cars-table
+                tr:nth-child(1)
+                    td
+                        &:nth-child(1)
+                            img
+                                width: 40px
+                        &:nth-child(2)
+                            img
+                                width: 60px
+                        &:nth-child(3)
+                            img
+                                width: 47px
+                        &:nth-child(4)
+                            img
+                                width: 47px
+                        &:nth-child(5)
+                            img
+                                width: 59px
+                        &:nth-child(6)
+                            img
+                                width: 80px
+                tr:nth-child(2)
+                    td
+                        &:nth-child(1)
+                            img
+                                width: 45px
+                        &:nth-child(2)
+                            img
+                                width: 45px
+                        &:nth-child(3)
+                            img
+                                width: 45px
+                        &:nth-child(4)
+                            img
+                                width: 70px
+                        &:nth-child(5)
+                            img
+                                width: 40px
+                        &:nth-child(6)
+                            img
+                                width: 60px
+                tr:nth-child(3)
+                    td
+                        &:nth-child(1)
+                            img
+                                width: 45px
+                        &:nth-child(2)
+                            img
+                                width: 60px
+                        &:nth-child(3)
+                            img
+                                width: 45px
+                        &:nth-child(4)
+                            img
+                                width: 60px
+                        &:nth-child(5)
+                            img
+                                width: 50px
+                        &:nth-child(6)
+                            img
+                                width: 60px
+                tr:nth-child(4)
+                    td
+                        &:nth-child(1)
+                            img
+                                width: 45px
+                        &:nth-child(2)
+                            img
+                                width: 45px
+                        &:nth-child(3)
+                            img
+                                width: 57px
+                        &:nth-child(4)
+                            img
+                                width: 60px
+                        &:nth-child(5)
+                            img
+                                width: 60px
+                        &:nth-child(6)
+                            img
+                                width: 40px
+
+.advantages-pledge
+    background-color: $secondaryBg
+    &__inner
+        height: 70px
+        list-style: none
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    &__item
+        padding-left: 58px
+        font-weight: 600
+        position: relative
+        height: 70px
+        line-height: 70px
+        &::before
+            position: absolute
+            content: ""
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+            width: 48px
+            height: 48px
+        &:nth-child(1)
+            &::before
+                background: url('../img/pledge-icon-1.svg') no-repeat center
+        &:nth-child(2)
+            &::before
+                background: url('../img/pledge-icon-2.svg') no-repeat center
+        &:nth-child(3)
+            &::before
+                background: url('../img/pledge-icon-3.svg') no-repeat center
+
+// * /advantages-pledge
+
+// now-section
+.now-section
+    padding: 50px 0 60px
+    background-color: $primaryBg
+    .container
+        max-width: 1040px
+
+    &__inner
+        display: flex
+        justify-content: space-between
+
+    &__title
+        font-size: 25px
+        font-weight: 600
+        line-height: 1.32
+        margin-bottom: 20px
+        padding-left: 2px
+
+    &__list
+        width: 69.4059%
+        padding: 25px 25px 0
+        border: 1px solid #e6e6e6
+        border-radius: 5px
+        background-color: #fff
+
+    &__items
+        list-style: none
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 424px
+
+    &__item
+        border-bottom: 1px solid #e6e6e6
+        padding-bottom: 9px
+        &:last-child
+            border: none
+
+        table
+            width: 650px
+        &-time
+            width: 80px
+        &-logo
+            width: 120px
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 40px
+            img
+                max-width: 70px
+                max-height: 40px
+                width: auto
+                height: auto
+                display: block
+        &-type
+            width: 146px
+        &-place
+            width: 186px
+        &-price
+            text-align: right
+            width: 88px
+
+    &__stats
+        width: 28.6138%
+        padding: 25px 25px 0
+        border: 1px solid #e6e6e6
+        border-radius: 5px
+        background-color: #fff
+        &-number
+            font-size: 30px
+            line-height: 41px
+            margin-bottom: 5px
+            opacity: .5
+            transition: opacity .1s ease-in-out
+            &.active
+                opacity: 1
+
+        &-item
+            padding: 11px 0
+            display: flex
+            flex-direction: column
+            border-bottom: 1px solid #e6e6e6
+            margin-bottom: 15px
+            &:hover
+                .now-section__stats-number
+                    opacity: 1
+
+// * /now-section
+
+// reviews-section
+.reviews-section
+    .container
+        max-width: 1144px
+
+    &__inner
+        position: relative
+        overflow-x: hidden
+        overflow-y: hidden
+        height: 274px
+        background-color: #fff
+        padding: 0 56px
+
+    &__slider
+        display: flex
+        align-items: center
+        height: 100%
+        width: auto
+        position: relative
+        .slick-track
+            display: flex
+        &-arrow
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+            background-color: transparent
+            border: none
+            padding: 10px
+            font-size: 0
+            color: transparent
+            &:disabled
+                opacity: .4
+                cursor: normal
+            &::before
+                content: ""
+                display: block
+                width: 13px
+                height: 13px
+                border-top: 2px solid $primary
+                border-right: 2px solid $primary
+            &.prev
+                left: -30px
+                transform: rotate(-135deg)
+            &.next
+                right: -30px
+                transform: rotate(45deg)
+        &-dots
+            display: flex
+            list-style: none
+            position: absolute
+            bottom: 30px
+            left: 50%
+            transform: translateX(-50%)
+            li
+                height: 10px
+                width: 10px
+                font-size: 0
+                color: transparent
+                margin-right: 10px
+                border-radius: 50%
+                background-color: #e6e6e6
+                transition: background .18s linear
+                button
+                    opacity: 0
+                    height: 100%
+                // cursor: pointer
+                &:hover
+                    background-color: $primaryHover
+                &.slick-active
+                    background-color: $secondary
+
+        &-item
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 100%
+            padding: 0 15px
+            outline: none
+            // position: absolute
+            // left: 0
+            // top: 0
+            // bottom: 0
+            // right: 0
+
+        &-person
+            text-align: center
+            margin-right: 20px
+
+        &-photo
+            height: 80px
+            width: 80px
+            overflow: hidden
+            border-radius: 50%
+            margin: 0 auto
+            img
+                display: block
+                width: 100%
+                height: auto
+        &-name
+            margin-top: 13px
+            font-weight: 600
+            font-style: normal
+            margin-bottom: 11px
+            display: block
+
+        &-who
+            width: 193px
+            text-align: center
+            font-size: 14px
+            line-height: 1.57
+
+        &-quote
+            position: relative
+            padding-right: 130px
+            blockquote
+                background-color: #F6F6F6
+                border-radius: 5px
+                margin: 0
+                padding: 25px 55px
+                line-height: 1.56
+                position: relative
+                a
+                    color: $secondary
+                    text-decoration: underline
+                    &:hover
+                        text-decoration: underline
+                &::after, &::before
+                    content: ""
+                    position: absolute
+                    width: 27px
+                    height: 27px
+                &::before
+                    left: 15px
+                    top: 15px
+                    background: url('../img/reviews-quotes-open.svg') center no-repeat
+                &::after
+                    right: 35px
+                    bottom: 15px
+                    background: url('../img/reviews-quotes-closed.svg') center no-repeat
+
+        &-company
+            position: absolute
+            right: 0
+            top: 50%
+            transform: translateY(-50%)
+            background-color: #fff
+            padding: 10px
+            box-shadow: 0px 0 9px 3px rgba(0,0,0,.06)
+            border-radius: 5px
+            width: 150px
+            height: 90px
+            display: flex
+            justify-content: center
+            align-items: center
+            img
+                display: block
+                max-width: 100%
+                // width: 100%
+                height: auto
+                max-height: 100%
+
+// * /reviews-section
+
+// news-section
+.news-section
+    background-color: $primaryBg
+    padding: 60px 0 50px
+    .container
+        max-width: 1102px
+
+    &--osago
+        background-color: #fff
+
+    &__articles
+        display: flex
+        width: 100%
+        justify-content: space-between
+
+    &__article
+        background-color: #fff
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 433px
+        width: 24.5%
+        max-width: 258px
+        padding: 6px
+        border: 1px solid #E6E6E6
+        transition: box-shadow .2s ease-in
+        margin: 0 5px
+        &:hover
+            box-shadow: 0 0 6px rgba(0,0,0,.3)
+            .news-section__article-title
+                color: $secondary
+            .news-section__article-picture
+                img
+                    transform: scale(1.3)
+
+        &-picture
+            margin-bottom: 15px
+            overflow: hidden
+
+            a
+                img
+                    display: block
+                    width: 100%
+                    transition: transform .33s ease-in-out
+
+        &-title
+            font-size: 18px
+            line-height: 1.3888
+            padding: 0 4px
+            margin-bottom: 10px
+            transition: color .22s ease-in
+            max-height: 75px
+            overflow: hidden
+
+        p
+            opacity: .5
+            padding: 0 4px
+            max-height: 93px
+            overflow: hidden
+
+        &-footer
+            display: flex
+            justify-content: flex-end
+            padding: 0 4px 9px
+            color: rgba(42, 42, 42, 0.5)
+            font-size: 13px
+            line-height: 18px
+
+        &-views
+            position: relative
+            &::after
+                content: ""
+                width: 20px
+                height: 15px
+                position: absolute
+                left: -24px
+                top: 50%
+                transform: translateY(-50%)
+                background: url('../img/eye-icon.svg') no-repeat center
+
+// * /news-section
+
+// divisions-section
+.divisions-section
+    padding: 60px 0 65px
+    background-color: $primaryBg
+    .container
+        max-width: 1210px
+        overflow-x: auto
+        &::-webkit-scrollbar
+            height: 7px
+            background-color: #949494
+        &::-webkit-scrollbar-thumb
+            border-radius: 6px
+            background-color: #949494
+            &:hover
+                background-color: #555555
+        &::-webkit-scrollbar-track
+            background-color: #e1e1e1
+    &__inner
+        display: flex
+        justify-content: space-between
+        width: 1590px
+        padding-bottom: 15px
+
+    &__block
+        width: 24.3%
+        &-heading
+            font-size: 18px
+            font-weight: 600
+            margin-bottom: 14px
+
+        &-wrapper
+            border: 1px solid #E6E6E6
+            background-color: #fff
+            border-radius: 5px
+            padding: 20px 25px
+
+        &-list
+            list-style: none
+            &-item
+                font-size: 15px
+                height: 30px
+                margin-bottom: 25px
+                a
+                    display: flex
+                    height: 30px
+                    align-items: center
+                    &:hover
+                        color: $secondary
+                        text-decoration: underline
+                &-pic
+                    width: 51px
+                    height: 30px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    margin-right: 20px
+
+                    img
+                        width: auto
+                        max-width: 100%
+                        height: auto
+                        max-height: 100%
+                        display: block
+                    &--square
+                        img
+                            width: 30px
+                            height: 30px
+
+// * /divisions-section
+
+// media-about-us
+.media-about-us
+    background-color: $secondaryBg
+    height: 70px
+    .container
+        height: 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+        max-width: 1180px
+    &__pic
+        display: block
+
+    &__text
+        font-weight: 600
+
+// * /media-about-us
+
+// people-say-section
+.people-say-section
+    padding: 50px 0
+
+// * /people-say-section
+
+// pluses-pledge
+.pluses-pledge
+    background-color: $secondaryBg
+    .container
+        max-width: 1140px
+    &__item
+        padding-left: 58px
+        font-weight: 600
+        position: relative
+        height: 70px
+        line-height: 70px
+        &::before
+            position: absolute
+            content: ""
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+            width: 48px
+            height: 48px
+        &:nth-child(1)
+            &::before
+                background: url('../img/pluses-1.svg') no-repeat center/cover
+        &:nth-child(2)
+            &::before
+                background: url('../img/pluses-2.svg') no-repeat center/cover
+        &:nth-child(3)
+            &::before
+                background: url('../img/pluses-3.svg') no-repeat center/cover
+
+// * /pluses-pledge
+
+// qna-section
+.qna-section
+    padding: 60px 0 90px
+    .container
+        max-width: 1236px
+
+    &--first-half
+        padding: 75px 0 40px
+        .qna-section__tabs
+            margin-bottom: 0
+
+    &--second-half
+        padding: 38px 0
+        background-color: $primaryBg
+        .container
+            padding: 35px 15px 21px
+            background-color: #fff
+
+    &__mobile-more
+        color: $secondary
+        display: none
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        padding-bottom: 4px
+        &::after
+            content: ""
+            width: 100%
+            height: 1px
+            background-color: $secondary
+            position: absolute
+            bottom: 0
+            left: 0
+
+    &__about
+        max-width: 1010px
+        margin: 0 auto
+        display: flex
+        flex-direction: column
+        &-title
+            margin-bottom: 25px
+            text-align: center
+            font-size: 30px
+            line-height: 1.36666
+        &-text
+            line-height: 1.56
+            margin-bottom: 35px
+            ul
+                list-style: unset
+                padding-left: 30px
+                margin: 20px 0
+            a
+                color: $secondary
+                &:hover
+                    text-decoration: underline
+            p
+                margin-bottom: 20px
+                &:last-child
+                    margin-bottom: 0
+        &-wrapper
+            margin-bottom: 35px
+            overflow: hidden
+            height: 400px
+            position: relative
+            &::after
+                content: ""
+                width: 100%
+                position: absolute
+                display: block
+                height: 1px
+                bottom: -1px
+                right: 0
+                box-shadow: 0 0px 49px 48px rgba(#fff, 1)
+                z-index: 5
+                transition: box-shadow .22s ease-in-out
+            &.show
+                height: auto
+                &::after
+                    box-shadow: 0 0px 0 0 rgba(#fff, 1)
+
+        &-more
+            padding-bottom: 40px
+            position: relative
+            display: inline-block
+            margin: 0 auto
+            color: $secondary
+            &.show
+                &::before
+                    transform: translateX(-50%) rotate(-270deg)
+            &::after
+                content: ""
+                width: 100%
+                height: 1px
+                position: absolute
+                background-color: $secondary
+                top: 25px
+                right: 0
+            &::before
+                content: ""
+                width: 20px
+                height: 15px
+                position: absolute
+                bottom: 0
+                left: 50%
+                transform: translateX(-50%) rotate(-90deg)
+                transition: transform .2s ease-in
+                background: url('../img/slider-arrow.svg') center no-repeat
+
+    &__tabs
+        margin-bottom: 84px
+        &-content
+            justify-content: space-between
+            position: relative
+    &__item
+        max-width: 392px
+        width: 33%
+        height: 190px
+        background-color: $primaryBg
+        border-radius: 5px
+        margin-bottom: 15px
+        padding: 25px 15px 25px 0
+        overflow: hidden
+        position: relative
+        // &::after
+        //     content: ""
+        //     width: 100%
+        //     position: absolute
+        //     display: block
+        //     height: 1px
+        //     bottom: 0
+        //     right: 0
+        //     box-shadow: 0 0 29px 38px #f3f5f7
+        //     z-index: 5
+        //     transition: box-shadow .22s ease-in-out
+        &:hover
+            &::after
+                box-shadow: 0 0px 0 0 #f3f5f7
+        &-header
+            display: none
+            height: 72px
+            font-size: 0
+            color: transparent
+            position: relative
+            &::after
+                content: ""
+                width: 45px
+                height: 45px
+                position: absolute
+                left: 25px
+                top: 50%
+                transform: translateY(-50%)
+                background: url('../img/qna-icon.svg') no-repeat center
+        &-answer
+            font-size: 14px
+            ul
+                padding-left: 20px
+            a
+                color: $secondary
+
+        &-wrapper
+            padding: 0 25px
+            height: 100%
+            overflow-y: auto
+            position: relative
+            z-index: 2
+            &::-webkit-scrollbar-track
+                background-color: #E1E1E1
+            &::-webkit-scrollbar
+                width: 2px
+                background-color: #949494
+            &::-webkit-scrollbar-thumb
+                border-radius: 2px
+                background-color: #949494
+
+        &-question
+            font-size: 16px
+            margin-bottom: 10px
+
+// * /qna-section
+
+// footer
+.footer
+    padding-bottom: 17px
+    &__up
+        position: fixed
+        bottom: 100px
+        right: 30px
+        z-index: 1040
+        transform: translateY(200px)
+        transition: transform .32s ease-in-out
+        &.show
+            transform: translateY(0)
+        &-btn
+            cursor: pointer
+            font-size: 0
+            color: transparent
+            width: 60px
+            height: 60px
+            border-radius: 50%
+            border: none
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1)
+            background: #fff url('../img/arrow-up.svg') no-repeat center
+            transition: box-shadow .22s ease-in-out
+            &:hover
+                box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1)
+
+    &__top
+        display: flex
+        align-items: center
+        justify-content: space-between
+        height: 68px
+        border-top: 1px solid #e6e6e6
+        border-bottom: 1px solid #e6e6e6
+        &-item
+            svg
+                display: block
+                path
+                    transition: fill .19s ease-in-out
+
+            .dark-stroke
+                stroke: #adadad
+                transition: stroke .19s ease-in-out
+            .blue
+                fill: #adadad
+            .green
+                fill: #adadad
+            .yellow
+                fill: #dbdbdb
+            .red
+                fill: #adadad
+            .dark
+                fill: #adadad
+                transition: fill .19s ease-in-out
+            .light
+                fill: #dbdbdb
+                transition: fill .19s ease-in-out
+            &.visa
+                &:hover
+                    .dark
+                        fill: #3362AB
+                    .light
+                        fill: #F9B50B
+
+            &.mastercard
+                &:hover
+                    .dark
+                        fill: #C8191C
+                    .light
+                        fill: #F9B50B
+
+            &.prostir
+                &:hover
+                    .dark
+                        fill: #004A8F
+                    .light
+                        fill: #FFCB05
+
+            &.applepay
+                &:hover
+                    .dark
+                        fill: #2a2a2a
+                    .dark-stroke
+                        stroke: #2a2a2a
+
+            &.googlepay
+                &:hover
+                    .dark
+                        fill: #5f6368
+                    .blue
+                        fill: #4285F4
+                    .green
+                        fill: #34A853
+                    .yellow
+                        fill: #FBBC04
+                    .red
+                        fill: #EA4335
+
+            &.pci
+                &:hover
+                    .light
+                        fill: #2BBC5D
+                    .dark
+                        fill: #225E63
+
+            &.visaverified
+                &:hover
+                    .light
+                        fill: #F09C11
+                    .dark
+                        fill: #074784
+
+            &.mcsecure
+                &:hover
+                    .light
+                        fill: #F59E1F
+                    .dark
+                        fill: #E41522
+
+            &.comodo
+                &:hover
+                    .light
+                        fill: #231F20
+                    .dark
+                        fill: #C41230
+
+    &__wrapper
+        padding-top: 25px
+        display: flex
+        justify-content: space-between
+
+    &__logo
+        img
+            display: block
+
+    &__link
+        display: inline-block
+        line-height: 1.87
+        transition: color .1s ease-in
+        &:hover
+            color: $secondary
+        &:last-child
+            margin-bottom: 0
+
+    &__col
+        position: relative
+        display: flex
+        flex-direction: column
+        &:nth-child(1)
+            width: 300px
+        &:nth-child(2)
+            width: 242px
+        &:nth-child(4)
+            width: 221px
+
+    &__contact-link
+        font-size: 14px
+        font-weight: 600
+        position: relative
+        display: inline-block
+        padding-left: 31px
+        line-height: 30px
+        margin-bottom: 10px
+        transition: color .1s ease-in
+        &:hover
+            color: $secondary
+        &::after
+            content: ""
+            position: absolute
+            width: 25px
+            height: 30px
+            left: 0
+            top: 50%
+            transform: translateY(-50%)
+        &._facebook
+            &::after
+                width: 25px
+                height: 25px
+                background: url('../img/footer-facebook-icon.svg') no-repeat center/cover
+        &._contact
+            &::after
+                background: url('../img/footer-contact-icon.svg') no-repeat center
+
+    &__copyright
+        padding-top: 10px
+        font-weight: 600
+        font-size: 14px
+
+// * /footer
+
+// documents
+.documents
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 500
+    overflow-y: auto
+
+    &.show
+        display: block
+
+    &__bg
+        background-color: rgba(0,0,0,.67)
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+
+    &__content
+        background-color: #fff
+        position: absolute
+        top: 100px
+        left: 50%
+        transform: translateX(-50%)
+        width: 100%
+        max-width: 900px
+        padding: 20px
+        border-radius: 5px
+        border: 1px solid #999
+        height: auto
+        &-wrapper
+            width: 100%
+            img
+                width: 100%
+                height: auto
+                display: block
+
+    &__close
+        font-size: 42px
+        padding: 0 20px
+        position: fixed
+        z-index: 501
+        top: 50px
+        right: 50px
+        color: #fff
+        transition: color .2s linear
+        &:hover
+            color: #f00
+// * /documents
+
+// modal
+.modal
+    display: none
+    position: fixed
+    z-index: 1000
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    background-color: #fff
+    &.show
+        display: block
+    &__close
+        position: absolute
+        padding: 20px
+        display: flex
+        top: 0
+        right: 0
+        cursor: pointer
+        align-items: center
+        flex-direction: column
+        font-weight: 600
+        font-size: 15px
+        z-index: 40
+        span
+            display: block
+            margin-top: 2px
+            color: $secondary
+        svg path
+            transition: fill .2s ease-in-out
+        &:hover
+            svg path
+                fill: $red
+
+    &__inner
+        max-width: 960px
+        width: 100%
+        margin: 0 auto
+        padding-top: 100px
+        height: 100vh
+        position: relative
+
+    &__header
+        text-align: center
+        padding-bottom: 30px
+        border-bottom: 1px solid $primaryBorder
+        margin-bottom: 35px
+
+    &__title
+        margin-bottom: 45px
+        font-size: 30px
+
+    &__subtitle
+        font-size: 15px
+
+    &__body
+        &.hide
+            display: none
+
+// modal
+
+// covid
+.color-covid
+    color: $primaryCovid
+
+.covid-btn
+    border: 0
+    background-color: $primaryCovid
+    color: $primary
+    padding: 10px 53px
+    font-size: 16px
+    font-weight: 600
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06)
+    transition: box-shadow .2s ease-in-out
+    &:hover
+        box-shadow: 0 0 16px rgba($primaryCovid, 0.6)
+
+.covid-section
+    &__title
+        font-size: 40px
+        font-weight: 800
+        color: $primaryCovid
+        margin-bottom: 15px
+        line-height: 1.14
+    &__subtitle
+        font-size: 16px
+        font-weight: 600
+        max-width: 625px
+        &.covid-underline
+            padding-bottom: 30px
+            margin-bottom: 60px
+    &__nav
+        margin-bottom: 30px
+        font-size: 13px
+
+.covid-underline
+    position: relative
+    &::after
+        content: ""
+        position: absolute
+        height: 4px
+        width: 350px
+        left: 0
+        bottom: 0
+        background: linear-gradient(90.33deg, #000A16 0%, #74FBFF 49.48%, #000A16 100%)
+.header-covid
+    .container
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-top: 20px
+
+.home-covid
+    padding-top: 45px
+    position: relative
+    height: 765px
+    margin-bottom: 20px
+    overflow: hidden
+    .container
+        position: relative
+        z-index: 5
+    &::after
+        content: ""
+        position: absolute
+        z-index: 0
+        width: 1510px
+        height: 765px
+        top: 43px
+        left: 50%
+        transform: translateX(-50%)
+        background: url('../img/covid/home-bg.png') no-repeat center
+
+    &__text
+        display: flex
+        flex-wrap: wrap
+        max-width: 748px
+        align-items: center
+        .covid-btn
+            padding: 10px 33px
+    &__title
+        font-weight: 800
+        font-size: 45px
+        color: $primaryCovid
+        max-width: 748px
+        line-height: 1.3555
+        padding-bottom: 15px
+        margin-bottom: 15px
+        position: relative
+    &__subtitle
+        font-size: 24px
+        margin-right: 40px
+        font-weight: 400
+
+.defend-covid
+    background: linear-gradient(90deg, #000A16 0%, rgba(3, 30, 63, 0) 46.31%), linear-gradient(180deg, #000A16 0%, #001731 48.44%, #000A16 100%)
+    &__suptable
+        margin-bottom: 5px
+        p
+            font-weight: 600
+        strong
+            font-size: 24px
+
+    &__table
+        width: 1080px
+        display: flex
+        justify-content: space-between
+        padding: 30px 0
+        &-outer
+            margin-bottom: 60px
+            overflow-x: auto
+        &-about
+            width: 480px
+            border-radius: 5px
+            background-color: #0C1928
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2)
+            &-header
+                height: 55px
+                border-bottom: 1px solid #182432
+            &-line
+                display: flex
+                align-items: center
+                justify-content: flex-end
+                font-size: 16px
+                font-weight: 600
+                text-align: end
+                padding: 10px 30px
+            &-footer
+                height: 97px
+                padding: 15px
+                border-top: 1px solid #182432
+                span
+                    display: block
+                    width: 100%
+                    height: 100%
+                    border: 1px dashed #74FBFF
+                    border-radius: 5px
+                    padding: 10px 65px
+                    text-align: center
+                    font-weight: 700
+        &-item
+            border-radius: 5px
+            background-color: #0C1928
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2)
+            width: 280px
+            transition: box-shadow .2s ease-in-out
+            &:hover
+                box-shadow: 0 0 30px rgba($primaryCovid, .3)
+            &-header
+                background-color: #192738
+                font-size: 24px
+                border-radius: 5px 5px 0 0
+                height: 54px
+                display: flex
+                align-items: center
+                justify-content: center
+                font-weight: 700
+            &-line
+                padding: 10px 30px
+                display: flex
+                align-items: center
+                justify-content: center
+                font-weight: 600
+                &:nth-child(3)
+                    height: 85px
+                &:nth-child(9)
+                    height: 63px
+                .price
+                    font-size: 24px
+            &-footer
+                height: 86px
+                display: flex
+                align-items: center
+                justify-content: center
+
+    &__info
+        padding-bottom: 84px
+        line-height: 1.5
+        h2
+            margin-bottom: 30px
+            font-size: 24px
+        ul
+            list-style: none
+            max-width: 804px
+            font-weight: 600
+            li
+                padding-left: 20px
+                position: relative
+                margin-bottom: 27px
+                &::before
+                    content: ""
+                    position: absolute
+                    left: 0
+                    top: 7px
+                    border-radius: 50%
+                    width: 8px
+                    height: 8px
+                    background-color: $primaryCovid
+        p
+            max-width: 804px
+            padding-left: 20px
+            position: relative
+            font-weight: 600
+            border-left: 1px solid #fff
+            &::before
+
+        &-button
+            display: flex
+            justify-content: center
+            margin-top: 40px
+            padding-bottom: 34px
+            .covid-btn
+                padding: 13px 34px
+                height: auto
+            &::after
+                left: 50%
+                transform: translateX(-50%)
+
+.remind-covid
+    padding: 35px 0
+    background-color: #0C1928
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2)
+    &__title
+        margin-bottom: 60px
+        font-size: 24px
+
+    &__wrapper
+        display: flex
+        justify-content: space-between
+        padding-bottom: 26px
+
+    &__item
+        display: flex
+        flex-direction: column
+        align-items: center
+        height: 258px
+        &-img
+            height: 214px
+
+        p
+            text-align: center
+            font-weight: 600
+            max-width: 150px
+
+.footer-covid
+    padding: 90px 0 50px
+    &__title
+        color: $primaryCovid
+        padding-bottom: 20px
+        margin-bottom: 50px
+        font-size: 40px
+        line-height: 1.14
+
+    &__wrapper
+        position: relative
+        display: flex
+        align-items: center
+        a
+            margin-right: 66px
+            &:last-child
+                margin-right: 0
+
+    &__up
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        cursor: pointer
+        text-align: center
+
+.no-bt
+    border-top: 0
+
+.no-bb
+    border-bottom: 0
+    padding-bottom: 0
+
+.show-1080
+    display: none
+
+.show-678
+    display: none
+
+.show-480
+    display: none
+
+.show-969
+    display: none
+
+// *** MEDIA
+
+// media 1366
+// @media screen and ( max-width: 1366px )
+
+// /media 1366
+// media 1200
+@media screen and ( max-width: 1200px )
+
+    .tabs-more
+        order: 2
+        margin-top: 25px
+
+    .tabs-more-button.dynamic
+        bottom: 0
+        right: unset
+        left: 0
+        top: unset
+
+    .leaders-section__tabs-content
+        justify-content: space-between
+    .news-section .container
+        max-width: 1000px
+    .news-section__article
+        max-width: 232px
+
+    .country-section__tabs-card
+        width: 23%
+    .country-section__tabs-content
+        justify-content: space-between
+
+    .leaders-section__tabs-calculate
+        left: 50%
+        transform: translate(-50%)
+
+    .reviews-section__slider-item
+        width: 100%
+
+    .leaders-section__tabs-wrapper,
+    .country-section__tabs-wrapper,
+    .everything-section__tabs-wrapper,
+    .qna-section__tabs-wrapper,
+    .media-about-us
+        overflow-x: auto
+
+    .leaders-section__tabs-content
+        width: 1120px
+
+    .tabs-more.dynamic
+        top: unset
+        right: unset
+        left: 50%
+        transform: translateX(-50%)
+        bottom: 0
+
+    .tooltip
+        left: unset
+        right: 10%
+
+// /media 1200px
+
+// media 1080px
+@media screen and ( max-width: 1080px )
+
+    .hide-1080
+        display: none
+
+    .show-1080
+        display: block
+
+    .quote-section__picture--osago::before
+        left: 0
+
+    .footer__wrapper
+        flex-direction: column
+        flex-wrap: wrap
+        height: 220px
+
+    .footer__col:nth-child(1)
+        width: unset
+        margin-bottom: 20px
+
+    .footer__copyright
+        text-align: center
+
+    .main-section .container::before
+        display: none
+
+    .main-section
+        &::before
+            content: ""
+            background: url('../img/main-bg-medium.jpg') no-repeat center
+            width: 598px
+            height: 455px
+            position: absolute
+            top: 0
+            right: 0
+            z-index: 0
+
+    .header__nav-menu-item
+        margin-right: 60px
+
+    .country-section__tabs-content
+        min-width: 996px
+        margin: 0 -10px 0 -5px
+
+    .everything-section__tabs-content
+        width: 1165px
+
+    .qna-section__tabs-content
+        width: 100%
+
+    .leaders-section__tabs-company
+        width: 20%
+
+    .country-section__tabs-card
+        width: 224px
+
+    .qna-section__item
+        width: 33%
+
+    .now-section__inner
+        flex-direction: column
+        align-items: center
+
+    .now-section__list
+        margin-bottom: 15px
+
+    .now-section__stats
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        justify-content: space-between
+
+    .now-section__title
+        width: 100%
+
+    .now-section__stats-item
+        border-right: 1px solid #e6e6e6
+        border-bottom: 0
+        padding-right: 5%
+        &:last-child
+            padding-right: 0
+            border-right: 0
+
+    .now-section__item-time
+        width: 12.307%
+
+    .now-section__item-logo
+        width: 18.461%
+
+    .now-section__item-type
+        width: 22.461%
+
+    .now-section__item-place
+        width: 28.615%
+
+    .now-section__item-price
+        width: 18.153%
+
+    .now-section__list
+        width: 100%
+
+    .now-section__item table
+        width: 100%
+
+    .media-about-us .container
+        width: 1180px
+
+    .news-section
+        overflow: hidden
+
+    body
+        overflow-x: hidden
+
+    .modal__inner
+        padding-top: 70px
+
+    .modal__title
+        margin-bottom: 25px
+
+// /media 1080px
+
+@media screen and ( max-width: 969px )
+    .show-969
+        display: block
+    .hide-969
+        display: none
+
+    .contact-section__tabs-wrapper
+        overflow-x: auto
+
+    .contact-section__tabs-content
+        width: 1100px
+
+    .robo-section__info-right
+        padding-right: 20px
+
+    .header__nav-submenu-item.soon::after
+        right: 40px
+
+    .reviews-section__slider-dots
+        bottom: -30px
+
+    .reviews-section__slider-arrow.next,
+    .reviews-section__slider-arrow.prev
+        z-index: 20
+
+    .quote-section__picture::before
+        left: 0
+
+    .main-section__types
+        padding: 0 60px
+
+    .main-section__types-item
+        width: 49%
+        max-width: unset
+
+    .main-section__title
+        max-width: 463px
+
+    .main-section__subtitle
+        max-width: 419px
+
+    .quote-section__picture
+        width: 220px
+
+    .quote-section__quote
+        padding: 20px 42px
+
+    .tabs-header
+        flex-wrap: wrap
+
+    .advantages-pledge__item,
+    .pluses-pledge__item
+        padding-left: 0
+        max-width: 169px
+        line-height: 1.3888
+        height: auto
+        text-align: center
+        padding-top: 52px
+        &::before
+            top: 0
+            left: 50%
+            transform: translate(-50%, 0)
+
+    .pluses-pledge__item
+        padding-top: 52px
+        max-width: 180px
+
+    .advantages-pledge__inner
+        height: 162px
+        padding: 0 20px
+
+    .pluses-pledge
+        .advantages-pledge__inner
+            height: 132px
+
+    .header__nav-menu-item
+        margin-right: 30px
+
+    .country-section__tabs-card
+        width: 229px
+
+    .news-section__tabs-buttons
+        margin-bottom: 10px
+
+    .reviews-section__slider-item
+        flex-direction: column
+
+    .reviews-section__inner
+        height: 469px
+        padding: 25px 25px 60px
+
+    .reviews-section__slider-person
+        margin: 0 0 30px 0
+
+    .reviews-section__slider-arrow
+        top: 166px
+        &.prev
+            left: 29%
+        &.next
+            right: 29%
+
+    .reviews-section__slider-who
+        margin: 0 auto
+
+    .documents__content
+        width: 88%
+
+    .documents__close
+        top: 30px
+
+    .footer__wrapper
+        height: 240px
+
+    .qna-section__item-wrapper
+        padding: 0 15px
+
+    .divisions-section__block-heading
+        white-space: nowrap
+
+    .divisions-section__inner
+        width: 1200px
+        padding: 0 15px
+
+    .how-it-works-section
+        padding-bottom: 41px
+
+    .divisions-section
+        .container
+            overflow-y: auto
+            padding: 0
+
+    .advanced-search__buttons
+        white-space: nowrap
+
+// /media 969
+
+// media 897
+@media screen and ( max-width: 897px )
+    .header__covid-pledge
+        font-size: 14px
+
+    .clients__dropdown-add
+        align-items: center
+        justify-content: center
+
+@media screen and ( max-width: 768px )
+
+    .footer-covid__title
+        font-size: 28px
+    .remind-covid__item
+        width: 50%
+
+    .footer-covid__wrapper
+        padding-bottom: 90px
+        flex-wrap: wrap
+        a
+            margin-bottom: 20px
+            &:nth-last-child(2)
+                margin-bottom: 0
+
+    .defend-covid__info ul
+        font-size: 14px
+
+    .footer-covid
+        padding-bottom: 20px
+
+    .login__inner-buttons
+        padding-bottom: 100px
+    .header__nav-submenu-item.soon::after
+        right: 0
+    .tabs-header
+        flex-direction: column
+        align-items: flex-start
+        overflow-y: auto
+
+    .quote-section__quote
+        padding-right: 10px
+
+    .contact-section__inner
+        flex-direction: column
+
+    .tooltip
+        left: 10%
+        right: unset
+
+    .contact-section__inner-info
+        width: 100%
+        margin-bottom: 20px
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    .contact-section__inner-schedule
+        text-align: center
+        margin-top: 20px
+
+    .contact-section__inner-address
+        align-self: flex-start
+
+    .contact-section__title
+        font-size: 30px
+        padding: 40px 0
+
+    .contact-section__inner-form
+        width: 100%
+
+    .contact-section__direct-item.soon::after
+        top: unset
+        bottom: 10px
+        right: 10px
+
+    .contact-section__footer
+        height: 474px
+
+    .login__image
+        display: none
+        border-radius: 0
+
+    .login__inner
+        width: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 30px 15px
+        border-radius: 0
+        border: 0
+
+    .login__close
+        top: 10px
+        right: 10px
+        svg path
+            fill: $secondary
+    .login__inner-title
+        font-size: 26px
+
+    .login__wrapper
+        border-radius: 0
+        overflow-y: auto
+        background-color: #fff
+        padding-bottom: 50px
+        height: 100%
+
+    .login
+        z-index: 1050
+        align-items: flex-start
+        padding-top: 0
+
+    .login__inner-wrapper
+        width: 100%
+
+    .qna-section__item
+        width: 49%
+    .tabs-buttons
+        flex-wrap: nowrap
+
+    .quote-section__quote blockquote
+        margin: 0 0 0 30px
+
+    .main-section__inner
+        padding: 45px 0 0
+
+    .tabs-more-button
+
+        border: 1px solid $secondary
+        border-radius: 5px
+        padding: 5px 40px 5px 20px
+        &::before
+            right: 15px
+        &::after
+            display: none
+
+    .container
+        padding: 0 20px
+
+    .leaders-section .section__title
+        max-width: 441px
+        margin: 0 auto 40px
+
+    .footer__wrapper
+        height: 270px
+        justify-content: flex-start
+
+    .now-section__stats-item
+        width: 50%
+        border-right: 0
+
+    .news-section__tabs-buttons
+        margin-bottom: 0
+
+    .news-section__tabs-header
+        margin-bottom: 15px
+
+    .qna-section__tabs
+        margin-bottom: 34px
+
+    .qna-section
+        padding: 60px 0 30px
+
+    .info-section__inner
+        padding: 40px 15px
+
+    .info-section__inner-table-outer
+        width: 100%
+
+    .info-section__inner-table
+
+    .info-section__inner-table-line-left
+        padding-right: 30px
+
+    .page-not-found
+        height: 754px
+        min-height: 100vh
+
+// /media 768
+
+// /media 740
+@media screen and ( max-width: 740px )
+
+    .header__covid-pledge
+        .container
+            height: auto
+            padding: 10px 20px
+            p
+                max-width: 267px
+            a
+                color: transparent
+                font-size: 0
+                height: 42px
+                width: 42px
+                display: block
+                background: url('../img/covid-link-arr.svg') no-repeat center/cover
+
+    .header.w-covid-pledge .header__top .container::after
+        width: 92px
+        height: 69px
+        background: url('../img/virus-green.png') no-repeat center
+        right: 20%
+        top: -60px
+
+    .hide-740
+        display: none
+    .show-740
+        display: block
+    .header__user-profile
+        max-width: 94px
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+
+    .header__nav, .header__tels, .header__lang
+        display: none
+
+    .header__user-lastname, .header__user-logout
+        display: none
+
+    .header__top
+        box-shadow: none
+        .container
+            justify-content: space-between
+
+    .p-div
+        .p-tooltip__outer
+            left: unset
+            right: -251px
+            &::after
+                left: 73%
+
+    .header__user
+        border: 0
+        padding: 0 0 0 38px
+        position: relative
+        margin-right: 40px
+        &.page-404
+            margin-right: 0
+        &::after
+            content: ""
+            width: 30px
+            height: 30px
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+            background: url('../img/profile-icon-mobile.svg') center no-repeat
+
+    .header-mobile, .header-mobile__burger
+        display: block
+// /media 740
+// media 678
+@media screen and ( max-width: 678px )
+
+    .modal__title
+        font-size: 24px
+
+    .modal__subtitle
+        font-size: 14px
+
+    .modal__header
+        padding: 0 15px 30px
+
+    .hide-678
+        display: none
+    .show-678
+        display: block
+
+    .footer__top
+        overflow-x: auto
+        &-item
+            margin: 0 10px
+
+    .reviews-section__slider-quote blockquote
+        padding: 25px 15px
+
+    .reviews-section__slider-quote blockquote::before
+        top: -5px
+
+    .reviews-section__slider-quote blockquote::after
+        bottom: -5px
+
+    .reviews-section__inner
+        padding: 25px 0 60px
+
+    .main-section::before
+        background: url(../img/main-bg-small.jpg) center no-repeat
+        width: 200px
+        height: 339px
+
+    .main-section__types
+        padding: 0 20px
+
+    .quote-section__quote
+        margin-left: 60px
+
+    .leaders-section__tabs-company
+        width: 173px
+        height: 215px
+        padding: 5px 15px
+        text-align: center
+
+    .leaders-section__tabs-calculate
+        width: 145px
+        bottom: 5px
+        font-size: 12px
+    .leaders-section__tabs-content
+        width: 865px
+
+    .leaders-section__tabs-info
+        font-size: 14px
+
+    .country-section__tabs-card
+        width: 190px
+
+    .country-section__tabs-content
+        width: 840px
+        min-width: unset
+
+    .pluses-pledge .advantages-pledge__inner,
+    .advantages-pledge__inner
+        padding: 0
+
+    .everything-section__tabs-content
+        width: 1000px
+
+    .now-section__stats-item
+        text-align: center
+        padding: 11px 0
+
+    .reviews-section__slider-arrow.next
+        right: 12%
+    .reviews-section__slider-arrow.prev
+        left: 12%
+
+    .footer__wrapper
+        height: 380px
+
+    .country-section__tabs-card:hover .country-section__tabs-price::before
+        width: 150px
+
+// /media 678
+
+// media 530
+@media screen and ( max-width: 530px )
+
+    .tooltip
+        left: 0
+
+    .advantages-pledge__inner
+        flex-direction: column
+        height: auto
+        padding: 25px 5px
+        align-items: flex-start
+
+    .tabs-button
+        margin-right: 25px
+
+    .how-it-works-section__right-list
+        padding: 0
+
+    .quote-section__quote blockquote::after
+        right: 6px
+
+    .section__main-title
+        font-size: 24px
+        line-height: 1.46
+
+    .pluses-pledge .advantages-pledge__inner,
+        height: auto
+        padding: 25px 5px
+
+    .pluses-pledge__item, .advantages-pledge__item
+        padding: 0 0 0 42px
+        margin-bottom: 25px
+        max-width: unset
+        width: 100%
+        text-align: start
+        &:last-child
+            margin-bottom: 0
+    .advantages-pledge__item::before, .pluses-pledge__item::before
+        left: 0
+        top: 50%
+        transform: translate(0, -50%)
+
+    .advantages-pledge__item
+        margin-bottom: 38px
+        padding-left: 62px
+
+    .now-section__stats-item
+        width: 100%
+        border-bottom: 1px solid #e6e6e6
+        &:last-child
+            border-bottom: 0
+
+    .now-section__stats
+        text-align: center
+
+    body
+        font-size: 14px
+        min-width: 320px
+
+    .main-section__types-title
+        font-size: 16px
+
+    .quote-section__picture
+        display: none
+
+    .quote-section__quote
+        margin: 0
+        padding: 57px 0 20px
+
+    .main-section-mobile__nav-item,
+    .header-mobile__nav-item,
+    .header-mobile__tels
+        font-size: 16px
+
+    .now-section
+        padding: 0 0 45px
+
+    .everything-section__tabs-content
+        width: 935px
+
+    .quote-section__quote blockquote::before
+        left: -5px
+        top: -24px
+
+    .reviews-section__slider-quote
+        padding-right: 0
+        padding-bottom: 90px
+
+    .reviews-section__slider-company
+        left: 50%
+        top: unset
+        bottom: 15px
+        transform: translate(-50%, 0)
+
+    .now-section__list
+        background-color: transparent
+        border: none
+        border-radius: 0
+        padding: 25px 0 0
+    .now-section__items-outer
+        overflow-x: auto
+    .now-section__items
+        width: 600px
+
+    .qna-section__about-title
+        font-size: 20px
+
+    .qna-section__about-text p
+        line-height: 1.79
+
+    .main-section__title
+        font-size: 30px
+        line-height: 1.35
+
+    .main-section__subtitle
+        font-size: 20px
+
+    .footer__wrapper
+        height: auto
+
+    .footer__col
+        margin-bottom: 15px
+
+    .footer__link
+        line-height: 2.14
+
+    .main-section__types-item
+        width: 100%
+        &:last-child
+            margin-bottom: 0
+
+    .section__title
+        font-size: 20px
+
+    .now-section__title
+        font-size: 18px
+
+    .pluses-pledge__item
+        margin-bottom: 48px
+        padding-left: 60px
+
+    .qna-section__tabs-content
+        width: 100%
+        padding-bottom: 40px
+        &.show
+            .qna-section__item:nth-child(4),
+            .qna-section__item:nth-child(5),
+            .qna-section__item:nth-child(6)
+                display: block
+
+    .qna-section__item
+        width: 100%
+        max-width: unset
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6)
+            display: none
+
+    .qna-section__mobile-more
+        display: block
+
+    .quote-section__quote blockquote
+        margin: 0
+
+    .now-section__title
+        text-align: center
+// /media 530
+
+// media 480
+@media screen and ( max-width: 480px )
+
+    .main-section__inner
+        padding: 25px 0 0
+
+    .tooltip
+        max-width: 100%
+
+    .footer__up
+        padding: 50px 0 0 50px
+        position: absolute
+        bottom: 30px
+        right: 0
+        align-self: flex-end
+        display: block!important
+        transform: traslateY(0)!important
+
+    .footer__col:nth-child(4)
+        width: 100%
+
+    .main-section__title
+        margin-bottom: 15px
+        max-width: 319px
+        font-size: 24px
+
+    .main-section__subtitle
+        font-size: 18px
+        max-width: 215px
+        margin-bottom: 20px
+
+    .main-section__list-item
+        max-width: 247px
+        padding-left: 26px
+        &:last-child
+            margin-bottom: 0
+
+    .how-it-works-section__right-list-item
+        width: 100%
+
+    .main-section__list-item::before
+        width: 16px
+        height: 16px
+        background-size: cover
+
+    .main-section__inner
+        margin-bottom: 40px
+    .leaders-section__inner
+        padding-top: 50px
+
+    .section__title
+        margin-bottom: 15px
+
+    .leaders-section .section__title
+        margin: 0 0 15px
+
+    .quote-section__quote blockquote::after
+        bottom: -26px
+
+    .leaders-section
+        padding-bottom: 45px
+        .container
+            padding: 0 10px
+
+    .country-section
+        .section__title,
+        &__tabs-header
+            padding: 0 10px
+        .container
+            padding: 0 10px
+
+    .leaders-section .section__title,
+    .leaders-section__tabs-header
+        padding: 0 10px
+
+    .country-section__tabs-card
+        width: 155px
+        margin: 0 5px 10px
+
+    .country-section__tabs-content
+        width: 660px
+
+    .everything-section__tabs-content
+        width: 660px
+
+    .everything-section__tabs-table td
+        white-space: nowrap
+        overflow: hidden
+        p
+            text-overflow: ellipsis
+
+    .news-section__articles
+        flex-direction: column
+
+    .news-section__article
+        width: 100%
+        max-width: unset
+        margin: 0 0 10px
+        height: auto
+        flex-direction: column
+        flex-wrap: wrap
+        position: relative
+        height: 110px
+        display: none
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4)
+            display: flex
+        &:nth-child(4)
+            margin-bottom: 0
+
+    .news-section__article-body
+        display: flex
+        height: 100%
+
+    .news-section__article-picture
+        margin-bottom: 0
+        margin-right: 10px
+        min-width: 131px
+        height: 100%
+
+        a img
+            height: 100%
+            width: auto
+
+    .news-section__article-text,
+    .news-section__article p
+        display: none
+
+    .news-section__article-title
+        padding: 0
+        margin-bottom: 0
+        font-size: 16px
+        height: 66px
+        overflow: hidden
+        padding-bottom: 18px
+
+    .news-section__article-footer
+        padding: 0
+        position: absolute
+        right: 6px
+        bottom: 6px
+
+    .news-section__article-views
+        display: none
+
+    .news-section
+        padding: 45px 0
+
+    .media-about-us
+        height: 167px
+        padding: 60px 0 20px
+        font-size: 16px
+        position: relative
+        overflow-x: auto
+        .container
+            position: static
+            flex-direction: column
+            flex-wrap: wrap
+            width: 500px
+            align-items: flex-start
+
+        &__text
+            position: absolute
+            top: 20px
+            left: 50%
+            transform: translateX(-50%)
+
+    .reviews-section .container
+        padding: 0
+
+    .reviews-section__slider-arrow.next
+        right: 11px
+
+    .reviews-section__slider-arrow.prev
+        left: 11px
+
+    .reviews-section__slider-quote blockquote
+        padding: 20px 22px
+        text-align: justify
+        &::before
+            top: -14px
+        &::after
+            bottom: -14px
+
+    .country-section__tabs-price
+        font-size: 13px
+
+    .country-section__tabs-card
+        padding: 10px
+
+    .country-section__tabs-card:hover .country-section__tabs-price::before
+        width: 124px
+
+    .hide-480
+        display: none
+
+    .show-480
+        display: block
+
+// /media 480
+
+// media 400
+@media screen and ( max-width: 400px )
+
+    .header__logo
+        width: 150px
+        img
+            width: 100%
+    .header__top,
+    .page-not-found__header__top
+        height: 60px
+
+    .contact-section__wrapper
+        .container
+            padding: 0
+
+    .contact-section__nav
+        padding-left: 15px
+
+    .contact-section__title
+        font-size: 24px
+        padding: 20px 0
+
+    .contact-section__products
+        padding: 0 15px
+
+    .contact-section__inner-form-button
+        .btn-primary
+            width: 100%
+
+    .contact-section__inner-info
+        align-items: flex-start
+
+    .contact-section__inner-schedule
+        text-align: start
+
+    .contact-section__inner-info
+        margin-bottom: 0
+
+    .contact-section__footer
+        height: 319px
+        background: url('../img/contacts/footer-bg-mob.jpg') no-repeat center/cover
+
+    .contact-section__footer-title
+        bottom: 0
+        font-size: 14px
+
+    .contact-section__inner-address-essence
+        min-width: 80px
+
+    .country-section__tabs-content
+        margin: 0
+
+    .country-section__tabs-city
+        font-size: 16px
+
+    .country-section__tabs-show::after
+        right: -16px
+        top: 5px
+
+    .qna-section__about-wrapper
+        margin-bottom: 0
+
+    .login
+        padding-top: 0
+
+    .quote-section__quote blockquote::after
+        bottom: 4px
+
+    .tooltip
+        left: 0
+
+    .tooltip-calc-next
+        max-width: 100%
+
+    .header-mobile__burger
+        top: 30px
+
+    .header-mobile.show
+        padding: 80px 0
+
+    .main-section__types
+        display: none
+
+    .main-section-mobile__nav
+        display: block
+
+    .calc-section--city .calc-section__tourist
+        padding: 30px 5px
+    .main-section
+        padding-bottom: 0
+
+    .country-section
+        .container
+            padding: 0 5px
+
+    .advantages-pledge__item::before,
+    .pluses-pledge__item::before
+        width: 30px
+        height: 30px
+
+    .advantages-pledge__item:nth-child(3)::before
+        background: url(../img/pledge-icon-3.svg) center/cover no-repeat
+    .advantages-pledge__item:nth-child(2)::before
+        background: url(../img/pledge-icon-2.svg) center/cover no-repeat
+    .advantages-pledge__item:nth-child(1)::before
+        background: url(../img/pledge-icon-1.svg) center/cover no-repeat
+
+    .pluses-pledge__item,
+    .advantages-pledge__item
+        padding-left: 50px
+        margin-bottom: 38px
+
+    .media-about-us__text
+        width: 100%
+        text-align: center
+
+    .calc-found__car-info-item b
+        white-space: normal
+        line-height: 1.2
+
+    .calc-found__car-info
+        width: 68%
+
+    .calc-section .container
+        padding: 0 15px
+
+    .footer-covid__title
+        font-size: 22px
+
+// /media 400
+
+// media 340
+@media screen and ( max-width: 340px )
+
+    .container
+        padding: 0 10px
+
+    .p-tooltip__outer
+        width: 292px
+
+    .tabs-more.dynamic
+        left: 20px
+        transform: translate(0, 0)
+
+    .header-mobile__burger
+        right: 10px
+
+// media height 720
+@media screen and ( max-height: 720px )
+    .section__nav
+        padding-top: 5px
+        padding-bottom: 5px
+
+// blog-page
