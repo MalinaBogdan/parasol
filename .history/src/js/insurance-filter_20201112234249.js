@@ -53,6 +53,7 @@ $(document).ready(function () {
     });
   });
   // /filter categories
+console.log(document.querySelectorAll( 'a[data-card="tour"]' ).length)
 
   // more cards button
   $(".more-cards-wrap").click(function () {
@@ -77,14 +78,14 @@ $(document).ready(function () {
         }
       } else {
         if (amountCardsCategories * 170 > heightGridTableRows) {
-          heightGridTableColumns += 400;
-          heightNewsWrapColumns += 400;
-          $(".table-cards-columns").css("height", `${heightGridTableColumns}px`);
-          $(".news-container").css("height", `${heightNewsWrapColumns}px`);
+          heightGridTableRows += 1020;
+          heightNewsWrapRows += 1020;
+          $(".table-cards-rows").css("height", `${heightGridTableRows}px`);
+          $(".news-container").css("height", `${heightNewsWrapRows}px`);
         }
+      
       }
-    }
-    if ($("#grid-table").hasClass("table-cards-rows")) {
+      if ($("#grid-table").hasClass("table-cards-rows")) {
         if (selectCategories == "all") {
           if (amountCards * 170 > heightGridTableRows) {
             heightGridTableRows += 1020;
@@ -94,13 +95,14 @@ $(document).ready(function () {
           }
         } else {
           if (amountCardsCategories * 170 > heightGridTableRows) {
-            heightGridTableRows += 510;
-            heightNewsWrapRows += 510;
+            heightGridTableRows += 1020;
+            heightNewsWrapRows += 1020;
             $(".table-cards-rows").css("height", `${heightGridTableRows}px`);
             $(".news-container").css("height", `${heightNewsWrapRows}px`);
           }
         }
       }
+    }
   });
   // /more cards button
 

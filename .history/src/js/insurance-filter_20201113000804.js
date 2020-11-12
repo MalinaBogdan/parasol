@@ -53,6 +53,7 @@ $(document).ready(function () {
     });
   });
   // /filter categories
+console.log(document.querySelectorAll( 'a[data-card="tour"]' ).length)
 
   // more cards button
   $(".more-cards-wrap").click(function () {
@@ -85,6 +86,7 @@ $(document).ready(function () {
       }
     }
     if ($("#grid-table").hasClass("table-cards-rows")) {
+        console.log(1)
         if (selectCategories == "all") {
           if (amountCards * 170 > heightGridTableRows) {
             heightGridTableRows += 1020;
