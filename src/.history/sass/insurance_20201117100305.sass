@@ -1,0 +1,994 @@
+@import variables
+@import classes
+
+body
+    background: #f4f5f7 !important
+
+.main-container
+    width: 1180px
+    margin: 0 auto
+    padding-top: 20px
+
+    a
+
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 13px
+        line-height: 18px
+        color: #2A2A2A
+
+    .wrapper
+        display: flex
+        justify-content: center
+
+        .wrapper-container-blog
+            padding: 0
+            width: 780px
+            min-height: 500px
+            margin: 0 20px 0 0
+
+            .filters-wrap
+                width: 780px
+                height: 50px
+                background-color: white
+                margin: 0 0 20px 0
+                display: flex
+                justify-content: space-around
+
+                a
+                    line-height: 50px
+                    font-family: Open Sans
+                    font-style: normal
+                    font-weight: normal
+                    font-size: 14px
+
+            .container-blog
+                padding: 0
+                width: 780px
+                min-height: 500px
+                margin: 0 20px 0 0
+                background-color: white
+
+        .wrapper-news-wrap
+            margin-top: 25px
+            width: 380px
+            min-height: 500px
+            display: flex
+            flex-direction: column
+
+            .banner-block
+                width: 380px
+                height: fit-content
+                background: linear-gradient(329.79deg, #7198FF 0%, #2168F3 100%), #FFFFFF
+                margin-bottom: 20px
+                border-radius: 5px
+                position: relative
+                padding: 0
+                overflow: visible
+                display: block
+
+                .hand-banner
+                    position: absolute
+                    top: 190px
+                    right: 0
+
+                div
+                    width: 100%
+                    height: 45px
+                    background: #87AAF2
+                    font-family: Open Sans
+                    font-style: normal
+                    font-weight: 600
+                    font-size: 13px
+                    line-height: 45px
+                    color: #FFFFFF
+                    text-align: center
+
+                h2
+                    margin: 25px 45px 0 20px
+                    font-family: Open Sans
+                    font-style: normal
+                    font-weight: bold
+                    font-size: 25px
+                    line-height: 34px
+                    color: #FFFFFF
+
+                .bottom-text
+                    font-family: Open Sans
+                    font-style: normal
+                    font-weight: normal
+                    font-size: 13px
+                    line-height: 140%
+                    text-align: center
+                    color: #FFFFFF
+                    margin: 15px 65px 20px 65px
+
+                .text-mail
+                    margin: 25px 40% 210px 20px
+                    font-family: Open Sans
+                    font-style: normal
+                    font-weight: normal
+                    font-size: 15px
+                    line-height: 150%
+                    color: #FFFFFF
+                    a
+                        font-family: Open Sans
+                        font-style: 600
+                        font-weight: normal
+                        font-size: 15px
+                        line-height: 150%
+                        color: #FFFFFF
+
+            .news-wrap
+                width: 100%
+                padding: 0px
+                height: 100%
+                background: white
+
+                .news-card
+                    width: 100%
+                    height: 70px
+                    padding: 5px
+                    margin: 0px
+                    display: flex
+                    cursor: pointer
+
+                    .svg-wrap
+                        text-align: center
+                        overflow: hidden
+                        width: 90px
+                        height: 60px
+
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                            transition: transform .33s ease-in-out,-webkit-transform .33s ease-in-out
+
+                    .news-card-main
+                        height: 60px
+                        display: inline-block
+                        flex: 1
+                        display: flex
+                        flex-direction: column
+                        padding-left: 15px
+
+                        .news-card-text,   .news-card-text a
+                            width: 100%
+                            height: 40px
+                            font-size: 15px
+                            font-weight: normal
+                            line-height: 20px
+                            overflow: hidden
+
+                        .news-card-bottom
+                            .grey-line
+                                margin-top: 13px
+                                width: 65%
+                                height: 1px
+                                width: 100%
+                                background-color: #9E9E9E
+                            p
+                                padding-left: 5px
+                                width: 120px
+                                font-weight: 600
+                                font-size: 13px
+                                line-height: 18px
+                                color: #9E9E9E
+
+.news-container
+    height: 625px
+    overflow: hidden
+
+.wrapper-filter-display
+    display: flex
+    justify-content: space-between
+
+.news-card:hover
+    img
+        transform: scale(1.3)
+    .news-card-text a
+        color: $secondary !important
+
+.wrapper-categories
+    height: 35px
+    margin-bottom: 10px
+
+.leaders-section__tabs-company
+    width: 20%
+
+.leaders-section__tabs-content
+    border-bottom: 1px solid #e6e6e6
+
+.categories-block
+    height: 50px
+    width: 780px
+    background-color: white
+    margin-bottom: 20px
+    padding: 5px 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+.filter-display-columns
+    margin: 10px 10px 5px
+    width: 15px
+    height: 15px
+    background-size: cover
+    cursor: pointer !important
+
+.filter-display-column:hover
+
+.filter-display-rows
+    margin: 10px 0
+    width: 15px
+    height: 15px
+    background-size: cover
+    cursor: pointer !important
+
+.filter-display-rows:hover
+
+.filter-display-rows:hover
+
+.bottom-string-wrap
+    display: flex
+    justify-content: space-between
+    position: relative
+    height: 50px
+    width: 600px
+
+    p
+        position: absolute
+        top: 20px
+        font-size: 16px
+
+    .svg-wrap
+        display: flex
+        position: relative
+
+        svg
+            position: absolute
+            left: 585px
+            top: 24px
+
+        p
+            position: absolute
+            left: 615px
+            top: 20px
+
+.title-slider
+    margin: 70px 0 0 0
+    font-size: 20px
+
+.button-more
+    display: none
+    margin: 0 20px
+    height: 75px
+    background-color: white
+    text-align: center
+
+    p
+        color: $secondary
+        cursor: pointer
+        text-decoration: underline
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 16px
+        line-height: 75px
+
+.articles-slider-container
+    width: 1180px
+    height: 280px
+    margin: 0 auto
+    margin-bottom: 80px
+
+.articles-wrapper
+    width: 1100px
+    height: 306px !important
+    overflow: hidden
+    display: inline-block
+    overflow-x: scroll
+    padding: 10px 0
+
+.articles-wrapper::-webkit-scrollbar
+    width: 0
+
+.img-slider-block
+    float: left
+    width: 210px
+    height: 280px
+    margin-right: 10px
+    position: relative
+
+    .img-slider-wrapper
+        width: 210px
+        height: 280px
+        overflow: hidden
+        border-radius: 5px
+
+        img
+            width: 210px
+            height: 280px
+            border-radius: 5px
+            transition: transform .33s ease-in-out,-webkit-transform .33s ease-in-out
+
+    .text-slider
+        position: absolute
+        top: 140px
+        left: 0
+        width: 100%
+        height: 140px
+
+        font-weight: bold
+        font-size: 15px
+        line-height: 20px
+        color: #FFFFFF
+        padding: 50px 10px
+        border-radius: 5px
+        box-shadow: inset 0px -160px 65px -103px rgba(0,0,0,0.39)
+
+.img-slider-block:hover
+    cursor: pointer !important
+
+    img
+        transform: scale(1.3)
+
+.img-slider-block:hover
+    border-radius: 5px
+
+.img-string
+    position: relative
+    width: 3300px
+    left: 0
+    transition: all ease 1s
+
+.img-string::after
+    content: ""
+    display: block
+    clear: both
+
+.slider-btn-wrapper
+    width: 65px
+    height: 280px
+    display: inline-flex
+    justify-content: center
+
+    svg
+        position: absolute
+        margin-top: 133px
+
+.slider-btn-wrapper:hover
+    svg
+        cursor: pointer
+
+.tabs-button
+    margin-right: 15px
+    font-weight: 600
+
+.table-cards-rows
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    grid-template-columns: repeat(1, 780px)
+    grid-template-rows: repeat(4,170px)
+    height: 1020px
+    overflow: hidden
+
+    .wrapper-grid
+        height: 170px
+        width: 780px
+        display: grid
+        padding: 5px 0
+        outline: 0.5px solid #E6E6E6
+        transition: opacity 0.5s
+        cursor: pointer
+
+        .card-grid-img
+            height: 160px
+            width: 250px
+            grid-column-start: 1
+            grid-column-end: 2
+            grid-row-start: 1
+            grid-row-end: 6
+            overflow: hidden
+
+            img
+                height: 100%
+                width: 100%
+                object-fit: cover
+                transition: transform .33s ease-in-out,-webkit-transform .33s ease-in-out
+
+        .card-grid-text
+            height: 140px
+            width: 520px
+            padding: 0 50px 0 10px
+            grid-column-start: 2
+            grid-column-end: 3
+            grid-row-start: 1
+            grid-row-end: 5
+
+            h4
+                font-size: 18px
+                line-height: 1.3888
+                margin-bottom: 10px
+                -webkit-transition: color .22s ease-in
+                -o-transition: color .22s ease-in
+                transition: color .22s ease-in
+                max-height: 75px
+                overflow: hidden
+
+            p
+                font-family: Open Sans
+                font-style: normal
+                font-weight: normal
+                font-size: 15px
+                line-height: 20px
+                height: 60px
+                overflow: hidden
+                text-overflow: ellipsis
+                color: inherit
+                transition: color .14s linear
+
+        .card-grid-footer
+            height: 20px
+            width: 520px
+            grid-column-start: 2
+            grid-column-end: 3
+            grid-row-start: 5
+            grid-row-end: 6
+            padding: 0 25px 0 10px
+
+            .svg-views
+                margin: 4px 10px 0 0
+
+            p
+                font-family: Open Sans
+                font-style: normal
+                font-weight: 600
+                font-size: 13px
+                line-height: 18px
+                color: $gray
+                overflow-x: hidden
+                height: 18px
+
+.p-scroll::-webkit-scrollbar
+    width: 0
+    height: 0
+
+.wrapper-grid:hover
+    img
+        transform: scale(1.3)
+    h4
+        color: #2b5fae
+
+.pagination-wrap
+    height: 55px !important
+
+.pagination-block
+    width: 25px
+    height: 25px
+    background-color: $secondary
+    color: white !important
+    font-size: 15px !important
+    border-radius: 50px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin: 15px 10px
+    cursor: pointer
+
+.pagination-block:hover
+    background-color: #457bcd
+    -webkit-box-shadow: 0 5px 10px rgba(43, 95, 174, 0.3)
+    box-shadow: 0 5px 10px rgba(43, 95, 174, 0.3)
+
+.more-cards-wrap
+    cursor: pointer
+
+.more-cards-wrap, .pagination-wrap
+    width: 780px
+    height: 75px
+    background-color: white
+    text-align: center
+    transition: all 0.5s
+    display: flex
+    justify-content: center
+
+    p
+        color: $secondary
+        cursor: pointer
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 20px
+        line-height: 75px
+
+.more-cards-wrap:hover
+    background-color: $secondary
+    text-align: center
+
+    p
+        color: white
+        cursor: pointer
+
+    .lds-grid
+        & div
+            background: white
+            animation: lds-grid 1.2s linear infinite
+
+        & div:nth-child(1)
+            top: 0px
+            left: 0px
+
+        & div:nth-child(2)
+            top: 0px
+            left: 12px
+
+        & div:nth-child(3)
+            top: 12px
+            left: 0px
+
+        & div:nth-child(4)
+            top: 12px
+            left: 12px
+
+.table-cards-columns
+    display: grid
+    grid-template-columns: repeat(3, 260px)
+    grid-template-rows: repeat(3,400px)
+    height: 1200px
+    overflow: hidden
+
+    .wrapper-grid
+        height: 400px
+        width: 260px
+        display: grid
+        padding: 5px
+        outline: 1px solid #E6E6E6
+        cursor: pointer
+
+        .card-grid-img
+            height: 160px
+            width: 250px
+            grid-column-start: 1
+            grid-column-end: 2
+            grid-row-start: 1
+            grid-row-end: 2
+            overflow: hidden
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                transition: transform .33s ease-in-out,-webkit-transform .33s ease-in-out
+
+        .card-grid-text
+            height: 180px
+            width: 250px
+            // padding: 0 50px 0 10px
+            grid-column-start: 1
+            grid-column-end: 2
+            grid-row-start: 2
+            grid-row-end: 3
+            padding: 18px 10px
+            overflow: hidden
+            text-overflow: ellipsis
+
+            h4
+                font-size: 18px
+                line-height: 1.3888
+                margin-bottom: 10px
+                -webkit-transition: color .22s ease-in
+                -o-transition: color .22s ease-in
+                transition: color .22s ease-in
+                max-height: 75px
+                overflow: hidden
+
+            p
+                font-family: Open Sans
+                font-style: normal
+                font-weight: normal
+                font-size: 15px
+                line-height: 20px
+                height: 100px
+                overflow: hidden
+                text-overflow: ellipsis
+
+        .card-grid-footer
+            height: 40px
+            width: 250px
+            grid-column-start: 1
+            grid-column-end: 2
+            grid-row-start: 3
+            grid-row-end: 4
+            padding: 0 10px
+
+            .svg-views
+                margin: 20px 10px 0 0
+
+            p
+                font-family: Open Sans
+                font-style: normal
+                font-weight: 600
+                font-size: 13px
+                line-height: 18px
+                color: $gray
+                line-height: 50px
+
+.insurance-button
+    font-size: 15px
+    color: #666a6f
+    border: none
+    padding: 5px 0
+    background-color: transparent
+    margin-right: 18px
+    -webkit-transition: color 0.15s ease-in
+    -o-transition: color 0.15s ease-in
+    transition: color 0.15s ease-in
+    font-weight: 600
+    position: relative
+    white-space: nowrap
+
+    &:disabled
+        cursor: auto !important
+
+    &.disabled
+        cursor: not-allowed !important
+        opacity: 0.5
+
+    &:first-child::before
+        left: unset
+        right: 0
+
+    &::before
+        content: ""
+        width: 0
+        height: 2px
+        background-color: #2b5fae
+        position: absolute
+        bottom: 0
+        left: 0
+        -webkit-transition: width 0.21s ease-in-out
+        -o-transition: width 0.21s ease-in-out
+        transition: width 0.21s ease-in-out
+
+    &:last-child
+        margin-right: 0
+
+    &:hover
+        color: #2a2a2a
+
+    &.active
+        color: #2a2a2a
+        font-weight: 700
+
+    &.active::before
+        width: 100%
+
+.hidden
+    display: none
+    opacity: 0
+
+.lds-grid
+    display: inline-block
+    position: relative
+    width: 22px
+    height: 22px
+    margin: 26px 0 0 20px
+
+    & div
+        position: absolute
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background: $secondary
+
+    & div:nth-child(1)
+        top: 0px
+        left: 0px
+
+    & div:nth-child(2)
+        top: 0px
+        left: 12px
+
+    & div:nth-child(3)
+        top: 12px
+        left: 0px
+
+    & div:nth-child(4)
+        top: 12px
+        left: 12px
+
+@keyframes lds-grid
+    0%, 100%
+        opacity: 1
+
+    50%
+        opacity: 0.5
+
+.leaders-section__tabs-content
+    justify-content: end
+
+#grid-table
+    transition: height 0.5s
+
+.prev-pages-wrap
+    display: flex
+
+    .prev-pages-separator
+        margin: -3px 10px
+    .prev-page
+        margin: 0 !important
+@media screen and ( max-width:  1200px)
+    .categories-block
+        overflow-x: scroll !important
+
+    .prev-pages-wrap
+        margin-left: 20px
+
+    .leaders-section__tabs-wrapper
+        padding-left: 20px
+
+    h1
+        margin-left: 20px
+
+    .main-container
+        width: 100% !important
+        margin: 0 !important
+        width: 100% !important
+
+        .wrapper-container-blog
+            flex: 1
+            margin: 0 20px !important
+
+            .filters-wrap
+                width: 650px !important
+
+                .container-blog
+                    width: 650px !important
+
+    .table-cards-rows
+        grid-template-columns: repeat(1, 100%)
+
+    .wrapper-news-wrap
+        width: 350px !important
+        margin-right: 20px
+
+    .articles-slider-container
+        width: 100% !important
+        padding-left: 20px !important
+
+    .articles-wrapper
+        width: 90% !important
+
+    .container-blog
+        width: 100% !important
+        margin: 0 !important
+
+    .categories-block
+        width: calc(100vw - 410px) !important
+
+    .scroll-wrap
+        width: 100%
+
+    .card-grid-text
+        width: 100% !important
+
+    .card-grid-footer
+        width: 100% !important
+
+    .wrapper-grid
+        width: 100% !important
+
+    .more-cards-wrap, .pagination-wrap
+        width: 100% !important
+
+    .text-h3
+        margin-left: 20px !important
+
+    .main-container .wrapper .wrapper-news-wrap .banner-block
+        width: 350px !important
+
+    .main-container .wrapper .wrapper-news-wrap .news-wrap .news-card .news-card-main .news-card-bottom p
+        font-size: 10px !important
+
+    .tabs-header
+        margin-left: 20px !important
+
+    .tabs-more
+        margin-left: 20px !important
+
+    .wrapper-news-wrap
+        margin-top: 0px !important
+
+    .wrapper-filter-display
+        display: none
+
+    .more-news-wrap
+        width: 250px
+
+    .table-cards-rows .wrapper-grid .card-grid-text h4
+        height: 50px
+
+    .insurance-buttons
+        width: 700px !important
+
+@media screen and ( max-width:  950px)
+    .wrapper-news-wrap
+        display: none !important
+
+    .categories-block
+        width: calc(100vw - 40px) !important
+        margin: 0 auto
+        margin-bottom: 20px !important
+
+@media screen and ( max-width:  650px)
+    .categories-block
+        width: 100vw !important
+
+    h1
+        font-size: 20px !important
+        margin-left: 20px !important
+
+    .main-container
+        width: 100% !important
+        margin: 0 !important
+
+        .wrapper
+            display: block
+
+            .wrapper-container-blog
+                width: 100% !important
+                margin: 0 !important
+                padding: 0 20px !important
+
+                .filters-wrap
+                    width: 100% !important
+
+                    .container-blog
+                        width: 100% !important
+
+    .wrapper-news-wrap
+        width: 100% !important
+        margin-top: 0px !important
+
+        h3
+            display: none !important
+
+    .articles-slider-container
+        width: 100% !important
+
+    .articles-wrapper
+        width: 100% !important
+
+    .container-blog
+        width: 100% !important
+
+    .categories-block
+        width: 100% !important
+
+    .wrapper-categories
+        width: 100% !important
+        padding: 0px !important
+        margin-top: 20px !important
+
+    .insurance-button
+        font-size: 8px
+
+    .card-grid-img
+        height: 85px !important
+        width: 135px !important
+
+    .card-grid-text
+        width: 100% !important
+        height: 100% !important
+        padding: 0 10px 0 10px !important
+
+        h4
+            font-size: 15px !important
+            height: 100% !important
+            line-height: 25px !important
+            margin-bottom: 10px !important
+
+        p
+            display: none !important
+
+    .card-grid-footer
+        display: none !important
+
+    .wrapper-grid
+        width: 100% !important
+        height: 95px !important
+
+    .more-cards-wrap, .pagination-wrap
+        width: 100% !important
+
+    .text-h3
+        margin-left: 20px !important
+
+    .banner-block
+        display: none !important
+
+    .news-container
+        height: 570px !important
+
+    .news-wrap
+        width: 100% !important
+        padding: 0px !important
+
+        .news-card
+            width: 100% !important
+            height: 95px !important
+            padding: 5px !important
+            margin: 0px !important
+            outline: 1px solid #E6E6E6 !important
+            display: flex
+
+            .svg-wrap
+                text-align: center
+                overflow: hidden
+                width: 135px !important
+                height: 85px !important
+
+            .news-card-main
+                height: 85px !important
+                padding-left: 10px
+                display: inline-block !important
+                flex: 1
+                display: flex
+                flex-direction: column
+
+                .news-card-text
+                    height: 60px !important
+
+                .news-card-bottom
+                    .grey-line
+                        margin: 10px 0 !important
+                    p
+                        font-size: 10px !important
+
+    .main-container .wrapper .wrapper-news-wrap .news-wrap .news-card .news-card-main .news-card-text
+        font-size: 12px !important
+
+    .tabs-header
+        margin-left: 20px !important
+
+    .tabs-more
+        margin-left: 20px !important
+
+    .table-cards-rows
+        height: 571px
+        display: grid
+        grid-template-columns: repeat(1, 100%)
+        grid-template-rows: repeat(4, 95px)
+
+    .more-cards-wrap, .banner-block, .pagination-wrap
+        display: none !important
+
+    .news-card-bottom
+        p
+            font-size: 7px !important
+
+    .button-more
+        display: block !important
+
+    .categories-block::-webkit-scrollbar
+        height: 3px !important
+
+    .insurance-buttons
+        width: 585px !important
+
+    .insurance-button
+        font-size: 12px !important
+        padding: 10px 0 !important
+
+@media screen and ( max-width:  390px)
+    .news-wrap .news-card .news-card-main .news-card-bottom
+        p
+            font-size: 7px !important
+
+@mixin name
+
+    animation: lds-grid 1.2s linear infinite

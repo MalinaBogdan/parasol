@@ -237,6 +237,12 @@ let amountCompanyBlock = document.querySelectorAll(".company-block")
 
 document.querySelector(".companies-string").style.width = `${(amountCompanyBlock.length * 275) / 2}px`
 
+if ((amountCompanyBlock.length * 275) / 2 > document.querySelector(".container-blog").offsetWidth) {
+  document.querySelector(".companies-wrapper").style.overflowX = "scroll"
+} else {
+   document.querySelector(".companies-wrapper").style.overflowX = "hidden"
+}
+
 
 $(".accordionToggler").on("click", function () {
   if ($(this).closest(".more-qna__item").hasClass("open")) {
@@ -254,14 +260,9 @@ $(".show-image").click(function(event) {
     $('.images img').eq(mainImage).addClass('active'); 
 });
 
-if (window.pageYOffset > 1000) {
-  console.log(12)
-}
-
 window.addEventListener('scroll', function (e) {
   if (window.pageYOffset > 1000) {
     document.querySelector(".btn-top-wrap").classList.add("show");
-
   } else if(window.pageYOffset < 1000) {
     document.querySelector(".btn-top-wrap").classList.remove("show");
   }
@@ -271,3 +272,11 @@ window.addEventListener('scroll', function (e) {
   });
   }
 })
+
+
+$(".copy-link-btn").click(function (event) {
+  $(".copy-link-promp").css("display", "block")
+
+  setTimeout(() =>  $(".copy-link-promp").css("display", "none"), 2000);
+})
+  

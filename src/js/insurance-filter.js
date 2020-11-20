@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  let heightGridTableRows = 1020;
-  let heightGridTableColumns = 1200;
+  let heightGridTableRows = 1021;
+  let heightGridTableColumns = 1201;
   let heightNewsWrapRows = 625;
   let heightNewsWrapColumns = 805;
   let amountCards = $(".wrapper-grid").length;
@@ -10,19 +10,29 @@ $(document).ready(function () {
     $("#grid-table")
       .removeClass("table-cards-columns")
       .addClass("table-cards-rows");
-    $(".table-cards-rows").css("height", "1020px");
+    $(".table-cards-rows").css("height", "1021px");
+  }
+  if (jQuery(window).width() < 651) {
+    $("#grid-table")
+      .removeClass("table-cards-columns")
+      .addClass("table-cards-rows");
+    $(".table-cards-rows").css("height", "571px");
   }
 
   // filter categories
   $(".insurance-button").click(function () {
     if ($("#grid-table").hasClass("table-cards-columns")) {
-      heightGridTableColumns = 1200;
+      heightGridTableColumns = 1201;
       heightNewsWrapColumns = 805;
       $(".table-cards-columns").css("height", `${heightGridTableColumns}px`);
       $(".news-container").css("height", `${heightNewsWrapColumns}px`);
     }
     if ($("#grid-table").hasClass("table-cards-rows")) {
-      heightGridTableRows = 1020;
+      if (jQuery(window).width() < 651) {
+        heightGridTableRows = 571;
+      } else {
+        heightGridTableRows = 1021;
+      }
       heightNewsWrapRows = 625;
       $(".table-cards-rows").css("height", `${heightGridTableRows}px`);
       $(".news-container").css("height", `${heightNewsWrapRows}px`);
@@ -44,7 +54,7 @@ $(document).ready(function () {
         setTimeout(function () {
           card.css("display", "grid");
         }, 500);
-      } else if (card.attr("data-card") == a) {
+      } else if ( a == card.attr("data-card")) {
         card.removeClass("hidden");
         setTimeout(function () {
           card.css("display", "grid");
@@ -59,13 +69,6 @@ $(document).ready(function () {
     let selectCategories = document.querySelector(".insurance-button.active").getAttribute("data-f")
 
     let amountCardsCategories = document.querySelectorAll(`a[data-card="${selectCategories}"]`).length
-
-
-    // if (jQuery(window).width() < 1200) {
-    // }
-    // if (jQuery(window).width() < 767) {
-    // }
-
 
     if ($("#grid-table").hasClass("table-cards-columns")) {
       if (selectCategories == "all") {
@@ -107,11 +110,27 @@ $(document).ready(function () {
   // more cards button mobile
   let heightCardsModible = 571;
   let heightNewsModible = 570;
+  
 
   $(".button-more").click(function () {
-    if (amountCards * 95 > heightCardsModible) {
-      heightCardsModible += 570;
-      $(".table-cards-rows").css("height", `${heightCardsModible}px`);
+    let selectCategories = document.querySelector(".insurance-button.active").getAttribute("data-f")
+    let amountCardsCategories = document.querySelectorAll(`a[data-card="${selectCategories}"]`).length
+
+    console.log(selectCategories)
+    if (selectCategories == "all") {
+      console.log(amountCards * 95)
+      console.log(heightGridTableRows)
+      if (amountCards * 95 > heightCardsModible) {
+        console.log(1337)
+          heightCardsModible += 570;
+          $(".table-cards-rows").css("height", `${heightCardsModible}px`);
+      }
+    } else {
+      if (amountCardsCategories * 95 > heightGridTableRows) {
+        heightGridTableRows += 570;
+        heightNewsWrapRows += 570;
+        $(".table-cards-rows").css("height", `${heightGridTableRows}px`);
+      }
     }
   });
   // /more cards button mobile
@@ -126,7 +145,7 @@ $(document).ready(function () {
 
     $(".icon-columns").css("fill", "#2B5FAE");
     $(".icon-rows").css("fill", "#2A2A2A");
-    heightGridTableColumns = 1200;
+    heightGridTableColumns = 1201;
     heightNewsWrapColumns = 805;
     $(".table-cards-columns").css("height", `${heightGridTableColumns}px`);
     $(".news-container").css("height", `${heightNewsWrapColumns}px`);

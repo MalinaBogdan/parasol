@@ -26,7 +26,7 @@ body
             padding: 0
             width: 780px
             min-height: 500px
-            margin: 25px 20px 0 0
+            margin: 0 20px 0 0
 
             .filters-wrap
                 width: 780px
@@ -51,7 +51,6 @@ body
                 background-color: white
 
         .wrapper-news-wrap
-            margin-top: 25px
             width: 380px
             min-height: 500px
             display: flex
@@ -136,7 +135,6 @@ body
 
                     .svg-wrap
                         text-align: center
-                        margin-right: 15px
                         overflow: hidden
                         width: 90px
                         height: 60px
@@ -153,6 +151,7 @@ body
                         flex: 1
                         display: flex
                         flex-direction: column
+                        padding-left: 15px
 
                         .news-card-text,   .news-card-text a
                             width: 100%
@@ -164,14 +163,14 @@ body
 
                         .news-card-bottom
                             .grey-line
-                                margin-top: 13px
+                                margin-top: 18px
                                 width: 65%
                                 height: 1px
                                 width: 100%
                                 background-color: #9E9E9E
                             p
-                                padding-left: 5px
                                 width: 120px
+                                padding-left: 5px
                                 font-weight: 600
                                 font-size: 13px
                                 line-height: 18px
@@ -280,13 +279,14 @@ body
 
 .articles-slider-container
     width: 1180px
-    height: 280px
+    height: 250px
     margin: 0 auto
     margin-bottom: 80px
+    position:
 
 .articles-wrapper
-    width: 1100px
-    height: 306px !important
+    width: 100%
+    height: 256px !important
     overflow: hidden
     display: inline-block
     overflow-x: scroll
@@ -297,37 +297,45 @@ body
 
 .img-slider-block
     float: left
-    width: 210px
-    height: 280px
+    width: 228px
+    height: 230px
     margin-right: 10px
     position: relative
 
     .img-slider-wrapper
-        width: 210px
-        height: 280px
+        width: 228px
+        height: 100%
         overflow: hidden
         border-radius: 5px
 
         img
-            width: 210px
-            height: 280px
+            width: 100%
+            height: 100%
+            object-fit: cover
             border-radius: 5px
             transition: transform .33s ease-in-out,-webkit-transform .33s ease-in-out
 
-    .text-slider
+    .text-slider-wrap
         position: absolute
-        top: 140px
-        left: 0
+        bottom: 0
         width: 100%
-        height: 140px
-
-        font-weight: bold
-        font-size: 15px
-        line-height: 20px
-        color: #FFFFFF
-        padding: 50px 10px
+        height: 100%
+        padding: 10px
         border-radius: 5px
-        box-shadow: inset 0px -160px 65px -103px rgba(0,0,0,0.39)
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        -webkit-box-shadow: inset 0px -200px 70px -91px rgba(0,0,0,0.78)
+        -moz-box-shadow: inset 0px -200px 70px -91px rgba(0,0,0,0.78)
+        box-shadow: inset 0px -200px 70px -91px rgba(0,0,0,0.78)
+
+.text-slider-wrap a
+    font-weight: bold
+    font-size: 15px
+    line-height: 20px
+    color: #FFFFFF
+    height: 80px
+    overflow: hidden
 
 .img-slider-block:hover
     cursor: pointer !important
@@ -337,6 +345,9 @@ body
 
 .img-slider-block:hover
     border-radius: 5px
+
+h1
+    font-size: 30px
 
 .img-string
     position: relative
@@ -350,10 +361,11 @@ body
     clear: both
 
 .slider-btn-wrapper
-    width: 65px
+    width: 50px
     height: 280px
     display: inline-flex
     justify-content: center
+    position: absolute
 
     svg
         position: absolute
@@ -371,9 +383,7 @@ body
     display: flex
     flex-direction: column
     justify-content: flex-start
-    grid-template-columns: repeat(1, 780px)
-    grid-template-rows: repeat(4,170px)
-    height: 1020px
+    height: 1021px
     overflow: hidden
 
     .wrapper-grid
@@ -381,7 +391,7 @@ body
         width: 780px
         display: grid
         padding: 5px 0
-        outline: 0.5px solid #E6E6E6
+        border-bottom: 0.5px solid #E6E6E6
         transition: opacity 0.5s
         cursor: pointer
 
@@ -450,7 +460,6 @@ body
                 font-size: 13px
                 line-height: 18px
                 color: $gray
-                overflow-y: scroll
                 overflow-x: hidden
                 height: 18px
 
@@ -465,23 +474,61 @@ body
         color: #2b5fae
 
 .pagination-wrap
-    height: 55px !important
+    height: fit-content !important
+    padding: 20px 0
 
-.pagination-block
-    width: 25px
-    height: 25px
-    background-color: $secondary
-    color: white !important
-    font-size: 15px !important
-    border-radius: 50px
+.pagination-wrap p
+    font-weight: normal
+    font-size: 13px
+    line-height: 18px
+    color: #6A6A6A
     display: flex
     flex-direction: column
     justify-content: center
-    margin: 15px 10px
+    margin-right: 6px
+
+.pagination-block
+    background: #FFFFFF
+    border: 1px solid #E6E6E6
+    box-sizing: border-box
+    border-radius: 2px
+    width: fit-content
+    height: 30px
+    padding: 0 6px
+    margin: 0 4px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    font-weight: 600 !important
+    font-size: 15px !important
+    line-height: 20px !important
+    color: #2B5FAE !important
+
+.pagination-next-btn
+    width: 30px
+    height: 30px
+    background: #FFFFFF
+    border: 1px solid #E6E6E6
+    box-sizing: border-box
+    border-radius: 2px
+    display: flex
+    flex-direction: column
+    justify-content: center
     cursor: pointer
 
+.pagination-next-btn:hover
+    -webkit-box-shadow: 0 5px 10px rgba(43, 95, 174, 0.3)
+    box-shadow: 0 5px 10px rgba(43, 95, 174, 0.3)
+
+.pagination-next-btn svg
+    margin: 0 auto
+
+.pagination-block.current
+    background: #2B5FAE
+    border: none
+    color: white !important
+
 .pagination-block:hover
-    background-color: #457bcd
     -webkit-box-shadow: 0 5px 10px rgba(43, 95, 174, 0.3)
     box-shadow: 0 5px 10px rgba(43, 95, 174, 0.3)
 
@@ -497,14 +544,14 @@ body
     display: flex
     justify-content: center
 
-    p
-        color: $secondary
-        cursor: pointer
-        font-family: Open Sans
-        font-style: normal
-        font-weight: 600
-        font-size: 20px
-        line-height: 75px
+.more-cards-wrap p
+    color: $secondary
+    cursor: pointer
+    font-family: Open Sans
+    font-style: normal
+    font-weight: 600
+    font-size: 20px
+    line-height: 75px
 
 .more-cards-wrap:hover
     background-color: $secondary
@@ -547,7 +594,7 @@ body
         width: 260px
         display: grid
         padding: 5px
-        outline: 1px solid #E6E6E6
+        border: 1px solid #E6E6E6
         cursor: pointer
 
         .card-grid-img
@@ -617,6 +664,8 @@ body
                 line-height: 18px
                 color: $gray
                 line-height: 50px
+                overflow:
+                height: 50px
 
 .insurance-button
     font-size: 15px
@@ -713,6 +762,7 @@ body
     justify-content: end
 
 #grid-table
+    border-top: 0.5px solid #E6E6E6
     transition: height 0.5s
 
 .prev-pages-wrap
@@ -730,7 +780,8 @@ body
         margin-left: 20px
 
     .leaders-section__tabs-wrapper
-        padding-left: 20px
+        width: calc(100% - 40px)
+        margin: 0 auto
 
     h1
         margin-left: 20px
@@ -750,19 +801,16 @@ body
                 .container-blog
                     width: 650px !important
 
-    .table-cards-rows
-        grid-template-columns: repeat(1, 100%)
-
     .wrapper-news-wrap
         width: 350px !important
         margin-right: 20px
 
     .articles-slider-container
-        width: 100% !important
-        padding-left: 20px !important
+        width: calc(100% - 70px) !important
+        margin-left: 20px
 
     .articles-wrapper
-        width: 90% !important
+        width: 100% !important
 
     .container-blog
         width: 100% !important
@@ -820,12 +868,25 @@ body
     .wrapper-news-wrap
         display: none !important
 
+    .slider-btn-wrapper
+        display: none
+
     .categories-block
         width: calc(100vw - 40px) !important
         margin: 0 auto
         margin-bottom: 20px !important
 
+@media screen and ( max-width:  780px)
+    h1
+        font-size: 24px
+
+    .content-wrap p
+        font-size: 14px
+
 @media screen and ( max-width:  650px)
+    .articles-slider-container
+        margin-left: 0
+
     .categories-block
         width: 100vw !important
 
@@ -859,7 +920,8 @@ body
             display: none !important
 
     .articles-slider-container
-        width: 100% !important
+        width: calc(100% - 40px) !important
+        margin: 0 auto
 
     .articles-wrapper
         width: 100% !important
@@ -929,13 +991,13 @@ body
 
             .svg-wrap
                 text-align: center
-                margin-right: 10px !important
                 overflow: hidden
                 width: 135px !important
                 height: 85px !important
 
             .news-card-main
                 height: 85px !important
+                padding-left: 10px
                 display: inline-block !important
                 flex: 1
                 display: flex
@@ -961,9 +1023,7 @@ body
 
     .table-cards-rows
         height: 571px
-        display: grid
-        grid-template-columns: repeat(1, 100%)
-        grid-template-rows: repeat(4, 95px)
+        display: flex
 
     .more-cards-wrap, .banner-block, .pagination-wrap
         display: none !important

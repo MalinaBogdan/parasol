@@ -38,6 +38,18 @@ body
             min-height: 500px
             flex-direction: column
 
+.container-blog .content-wrap figure
+    margin: 0
+    margin-left: -25px
+    width: calc(100% + 50px)
+
+.content-wrap p img
+    width: 100% !important
+    height: 100% !important
+
+.container-blog .content-wrap figure img
+    width: 100%
+
 .banner
     width: 280px
     min-height: 280px
@@ -167,12 +179,20 @@ body
     i
         font-weight: 600px
 
+        b
+            font-size: 15px
+
     .icon-calendar
         margin: 20px 0
         display: flex
 
         p
             margin: 0
+
+    a
+        font-size: 15px
+        color: #2B5FAE
+        font-weight: normal
 
 .insert-banner
     margin: 35px 0px
@@ -527,6 +547,7 @@ body
     height: 50px
     border: 1px solid #E6E6E6
     border-radius: 5px
+    display: flex
 
 .company-logo
     width: 56px
@@ -535,7 +556,9 @@ body
 
     img
         height: 100%
+        width: inherit
         transition: transform .33s ease-in-out,-webkit-transform .33s ease-in-out
+        object-fit: contain
 
 .company-block:hover
     cursor: pointer !important
@@ -550,9 +573,6 @@ body
 .company-name
     display: inline-block
     line-height: 50px
-    position: absolute
-    left: 86px
-    top: 0
     z-index: 1
 
 .force-overflow
@@ -679,12 +699,46 @@ body
 .author-wrap, .calendar-wrap, .views-wrap
     display: flex
 
+.copy-link-btn
+    position: relative
+    height: 31px
+
+.copy-link-promp
+    display: none
+    position: absolute
+    width: fit-content
+    height: fit-content
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.06)
+    border-radius: 5px
+    bottom: -2px
+    left: 50px
+    text-align: center
+    padding: 10px
+    white-space: nowrap
+    background: linear-gradient(180deg, rgba(52,126,192,1) 35%, rgba(46,144,230,1) 100%)
+    color: white
+    font-size: 13px
+
+.copy-link-promp::after
+    content: ""
+    width: 0
+    height: 0
+    border-style: solid
+    border-width: 5px 6px 0
+    border-color: rgba(52,126,192,1) transparent transparent
+    position: absolute
+    bottom: 17px
+    left: -8px
+    transform: rotate(90deg)
+
 .faq-wrap
     width: 100%
     margin: 0 auto
     height: fit-content
     background: #F4F5F7
     padding: 25px 15px
+    display: flex
+    flex-direction: column
 
     .more-info-block
         width: 100%
@@ -936,6 +990,9 @@ body
         width: 900px !important
 
 @media screen and ( max-width:  767px)
+    .content-wrap p
+        font-size: 14px
+
     .main-container h1
         font-size: 24px
 
@@ -1040,9 +1097,26 @@ body
     .swiper-container .swiper-slide
         height: 250px !important
 
+    .copy-link-promp
+        bottom: 40px
+        left: -55px
+
+    .copy-link-promp::after
+        border-color: rgba(46,144,230,1) transparent transparent
+        bottom: -4px
+        left: 70px
+        transform: rotate(0deg)
+
 @media screen and ( max-width:  420px)
     .swiper-container .swiper-slide
         height: 200px !important
 
     .none-420
         display: none !important
+
+@media screen and ( max-width:  380px)
+    .copy-link-promp
+        left: -100px
+
+    .copy-link-promp::after
+        left: 120px
